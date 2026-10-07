@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(**/*token*)",
+      "Read(./legacy/handoff/handoff/data/**)",
+      "Read(./legacy/handoff/handoff/old_invalid/**)",
+      "Read(./legacy/handoff/handoff/corrections/CORRECTIONS_VERBATIM.md)"
+    ]
+  }
+}

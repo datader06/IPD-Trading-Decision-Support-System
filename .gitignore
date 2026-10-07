@@ -1,0 +1,12 @@
+.env
+.env.*
+!.env.example
+.kite_token
+*token*
+__pycache__/
+*.pyc
+data/cache/
+results/tmp/
+data/raw/*.csv
+data/raw/**/*.csv
+*.zip
