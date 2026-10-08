@@ -10,3 +10,20 @@ results/tmp/
 data/raw/*.csv
 data/raw/**/*.csv
 *.zip
+
+# test / tool caches
+.pytest_cache/
+
+# generated or personal files (not for the shared repo)
+*.pkl
+*.pdf
+*.docx
+photos*/
+results/**/_ckpt/
+results/**/rescored_*.csv
+
+# legacy handoff material that is private, invalid or bulky (the engine code in legacy/handoff/handoff/code/ stays tracked)
+legacy/handoff/handoff/data/
+legacy/handoff/handoff/old_invalid/
+legacy/handoff/handoff/corrections/
+legacy/handoff/handoff/golden/annotated_charts/
