@@ -1,0 +1,122 @@
+"""Stock universe for the zone scanner. Nifty 50 constituents (Yahoo Finance
+NSE tickers). TATAMOTORS.NS and LTIM.NS are excluded -- both 404 on Yahoo
+under their old symbols as of 2026-09 (likely renamed/relisted upstream)."""
+
+NIFTY50 = [
+    'RELIANCE.NS', 'TCS.NS', 'HDFCBANK.NS', 'ICICIBANK.NS', 'INFY.NS', 'HINDUNILVR.NS',
+    'ITC.NS', 'SBIN.NS', 'BHARTIARTL.NS', 'KOTAKBANK.NS', 'LT.NS', 'AXISBANK.NS',
+    'BAJFINANCE.NS', 'ASIANPAINT.NS', 'MARUTI.NS', 'SUNPHARMA.NS', 'TITAN.NS',
+    'ULTRACEMCO.NS', 'NESTLEIND.NS', 'WIPRO.NS', 'ONGC.NS', 'NTPC.NS', 'POWERGRID.NS',
+    'M&M.NS', 'TATASTEEL.NS', 'JSWSTEEL.NS', 'ADANIENT.NS', 'ADANIPORTS.NS',
+    'COALINDIA.NS', 'BAJAJFINSV.NS', 'HCLTECH.NS', 'INDUSINDBK.NS', 'TECHM.NS',
+    'DRREDDY.NS', 'CIPLA.NS', 'GRASIM.NS', 'BRITANNIA.NS', 'EICHERMOT.NS',
+    'HEROMOTOCO.NS', 'BPCL.NS', 'DIVISLAB.NS', 'APOLLOHOSP.NS', 'HDFCLIFE.NS',
+    'SBILIFE.NS', 'BAJAJ-AUTO.NS', 'UPL.NS', 'SHRIRAMFIN.NS', 'HINDALCO.NS',
+]
+
+# Mid/small-cap + PSU names added 2026-09 -- user's reference scan (a broader
+# tool, not Nifty50-only) flagged several tickers we were silently missing
+# just because they weren't in the universe at all (not a detection bug).
+# All 29 confirmed resolvable on yfinance as of 2026-09-19.
+EXTENDED = [
+    'FEDERALBNK.NS', 'ITI.NS', 'RAILTEL.NS', 'TMPV.NS', 'IFCI.NS', 'GODREJPROP.NS',
+    'UCOBANK.NS', 'JPPOWER.NS', 'UNITDSPR.NS', 'JUBLINGREA.NS', 'MTNL.NS', 'FACT.NS',
+    'PRESTIGE.NS', 'CERA.NS', 'HUDCO.NS', 'BHARATFORG.NS', 'VOLTAS.NS', 'BANKBARODA.NS',
+    'NTPCGREEN.NS', 'MANAPPURAM.NS', 'LUPIN.NS', 'PFIZER.NS', 'ORIENTCEM.NS',
+    'UTIAMC.NS', 'KEI.NS', 'PIIND.NS', 'ABFRL.NS', 'AIAENG.NS', 'JKTYRE.NS',
+]
+
+# Nifty 500 constituents (NSE's official list, archives.nseindia.com/
+# content/indices/ind_nifty500list.csv, pulled 2026-09-22) -- used to widen
+# the MTF backtest universe well beyond Nifty50+EXTENDED per user request
+# ("no way there are this less trades, I've taken so many more myself").
+# Not all of these will resolve on yfinance (recent listings, renames,
+# demergers) -- callers should already be wrapping per-ticker fetches in
+# try/except (mtf_zones.py / mtf_backtest.py both do), so bad symbols are
+# just skipped, not fatal.
+_NIFTY500_SYMBOLS = [
+    '360ONE', '3MINDIA', 'ABB', 'ACC', 'ACMESOLAR', 'AIAENG', 'APLAPOLLO', 'AUBANK', 'AWL',
+    'AADHARHFC', 'AARTIIND', 'AAVAS', 'ABBOTINDIA', 'ACE', 'ACUTAAS', 'ADANIENSOL', 'ADANIENT',
+    'ADANIGREEN', 'ADANIPORTS', 'ADANIPOWER', 'ATGL', 'ABCAPITAL', 'ABFRL', 'ABLBL', 'ABREL',
+    'ABSLAMC', 'CPPLUS', 'AEGISLOG', 'AEGISVOPAK', 'AFCONS', 'AFFLE', 'AJANTPHARM', 'ALKEM',
+    'ABDL', 'ARE&M', 'AMBER', 'AMBUJACEM', 'ANANDRATHI', 'ANANTRAJ', 'ANGELONE', 'ANTHEM',
+    'ANURAS', 'APARINDS', 'APOLLOHOSP', 'APOLLOTYRE', 'APTUS', 'ASAHIINDIA', 'ASHOKLEY',
+    'ASIANPAINT', 'ASTERDM', 'ASTRAL', 'ATHERENERG', 'ATUL', 'AUROPHARMA', 'AIIL', 'DMART',
+    'AXISBANK', 'BEML', 'BLS', 'BSE', 'BAJAJ-AUTO', 'BAJFINANCE', 'BAJAJFINSV', 'BAJAJHLDNG',
+    'BAJAJHFL', 'BALKRISIND', 'BALRAMCHIN', 'BANDHANBNK', 'BANKBARODA', 'BANKINDIA', 'MAHABANK',
+    'BATAINDIA', 'BAYERCROP', 'BELRISE', 'BERGEPAINT', 'BDL', 'BEL', 'BHARATFORG', 'BHEL',
+    'BPCL', 'BHARTIARTL', 'BHARTIHEXA', 'BIKAJI', 'GROWW', 'BIOCON', 'BSOFT', 'BLUEDART',
+    'BLUEJET', 'BLUESTARCO', 'BBTC', 'BOSCHLTD', 'FIRSTCRY', 'BRIGADE', 'BRITANNIA', 'MAPMYINDIA',
+    'CCL', 'CESC', 'CGPOWER', 'CIEINDIA', 'CRISIL', 'CANFINHOME', 'CANBK', 'CANHLIFE',
+    'CAPLIPOINT', 'CGCL', 'CARBORUNIV', 'CARTRADE', 'CASTROLIND', 'CEATLTD', 'CEMPRO',
+    'CENTRALBK', 'CDSL', 'CHALET', 'CHAMBLFERT', 'CHENNPETRO', 'CHOICEIN', 'CHOLAHLDNG',
+    'CHOLAFIN', 'CIPLA', 'CUB', 'CLEAN', 'COALINDIA', 'COCHINSHIP', 'COFORGE', 'COHANCE',
+    'COLPAL', 'CAMS', 'CONCORDBIO', 'CONCOR', 'COROMANDEL', 'CRAFTSMAN', 'CREDITACC',
+    'CROMPTON', 'CUMMINSIND', 'CYIENT', 'DCMSHRIRAM', 'DLF', 'DOMS', 'DABUR', 'DALBHARAT',
+    'DATAPATTNS', 'DEEPAKFERT', 'DEEPAKNTR', 'DELHIVERY', 'DEVYANI', 'DIVISLAB', 'DIXON',
+    'LALPATHLAB', 'DRREDDY', 'DUMMYHEG', 'EIDPARRY', 'EIHOTEL', 'EICHERMOT', 'ELECON',
+    'ELGIEQUIP', 'EMAMILTD', 'EMCURE', 'EMMVEE', 'ENDURANCE', 'ENGINERSIN', 'ERIS', 'ESCORTS',
+    'ETERNAL', 'EXIDEIND', 'NYKAA', 'FEDERALBNK', 'FACT', 'FINCABLES', 'FSL', 'FIVESTAR',
+    'FORCEMOT', 'FORTIS', 'GAIL', 'GVT&D', 'GMRAIRPORT', 'GABRIEL', 'GALLANTT', 'GRSE',
+    'GICRE', 'GILLETTE', 'GLAND', 'GLAXO', 'GLENMARK', 'MEDANTA', 'GODIGIT', 'GPIL',
+    'GODFRYPHLP', 'GODREJCP', 'GODREJIND', 'GODREJPROP', 'GRANULES', 'GRAPHITE', 'GRASIM',
+    'GRAVITA', 'GESHIP', 'FLUOROCHEM', 'GMDCLTD', 'HBLENGINE', 'HCLTECH', 'HDBFS', 'HDFCAMC',
+    'HDFCBANK', 'HDFCLIFE', 'HEGAM', 'HFCL', 'HAVELLS', 'HEROMOTOCO', 'HEXT', 'HSCL',
+    'HINDALCO', 'HAL', 'HINDCOPPER', 'HINDPETRO', 'HINDUNILVR', 'HINDZINC', 'POWERINDIA',
+    'HOMEFIRST', 'HONASA', 'HONAUT', 'HUDCO', 'HYUNDAI', 'ICICIBANK', 'ICICIGI', 'ICICIAMC',
+    'ICICIPRULI', 'IDBI', 'IDFCFIRSTB', 'IFCI', 'IIFL', 'IRB', 'IRCON', 'ITCHOTELS', 'ITC',
+    'ITI', 'INDGN', 'INDIACEM', 'INDIAMART', 'INDIANB', 'IEX', 'INDHOTEL', 'IOC', 'IOB',
+    'IRCTC', 'IRFC', 'IREDA', 'IGL', 'INDUSTOWER', 'INDUSINDBK', 'NAUKRI', 'INFY', 'INOXWIND',
+    'INTELLECT', 'INDIGO', 'IGIL', 'IKS', 'IPCALAB', 'JKCEMENT', 'JBMA', 'JKTYRE', 'JMFINANCIL',
+    'JSWCEMENT', 'JSWDULUX', 'JSWENERGY', 'JSWINFRA', 'JSWSTEEL', 'JAINREC', 'JPPOWER',
+    'J&KBANK', 'JINDALSAW', 'JSL', 'JINDALSTEL', 'JIOFIN', 'JUBLFOOD', 'JUBLINGREA',
+    'JUBLPHARMA', 'JWL', 'JYOTICNC', 'KPRMILL', 'KEI', 'KPITTECH', 'KAJARIACER', 'KPIL',
+    'KALYANKJIL', 'KARURVYSYA', 'KAYNES', 'KEC', 'KFINTECH', 'KIRLOSENG', 'KOTAKBANK', 'KIMS',
+    'LTF', 'LTTS', 'LGEINDIA', 'LICHSGFIN', 'LTFOODS', 'LTM', 'LT', 'LATENTVIEW', 'LAURUSLABS',
+    'THELEELA', 'LEMONTREE', 'LENSKART', 'LICI', 'LINDEINDIA', 'LLOYDSME', 'LODHA', 'LUPIN',
+    'MMTC', 'MRF', 'MGL', 'M&MFIN', 'M&M', 'MANAPPURAM', 'MRPL', 'MANKIND', 'MARICO', 'MARUTI',
+    'MFSL', 'MAXHEALTH', 'MAZDOCK', 'MEESHO', 'MINDACORP', 'MSUMI', 'MOTILALOFS', 'MPHASIS',
+    'MCX', 'MUTHOOTFIN', 'NATCOPHARM', 'NBCC', 'NCC', 'NHPC', 'NLCINDIA', 'NMDC', 'NSLNISP',
+    'NTPCGREEN', 'NTPC', 'NH', 'NATIONALUM', 'NAVA', 'NAVINFLUOR', 'NESTLEIND', 'NETWEB',
+    'NEULANDLAB', 'NEWGEN', 'NAM-INDIA', 'NIVABUPA', 'NUVAMA', 'NUVOCO', 'OBEROIRLTY', 'ONGC',
+    'OIL', 'OLAELEC', 'OLECTRA', 'PAYTM', 'ONESOURCE', 'OFSS', 'POLICYBZR', 'PCBL', 'PGEL',
+    'PIIND', 'PNBHOUSING', 'PTCIL', 'PVRINOX', 'PAGEIND', 'PARADEEP', 'PATANJALI', 'PERSISTENT',
+    'PETRONET', 'PFIZER', 'PHOENIXLTD', 'PWL', 'PIDILITIND', 'PINELABS', 'PIRAMALFIN',
+    'PPLPHARMA', 'POLYMED', 'POLYCAB', 'POONAWALLA', 'PFC', 'POWERGRID', 'PREMIERENE',
+    'PRESTIGE', 'PFOCUS', 'PNB', 'RRKABEL', 'RBLBANK', 'RECLTD', 'RHIM', 'RITES', 'RADICO',
+    'RVNL', 'RAILTEL', 'RAINBOW', 'RKFORGE', 'REDINGTON', 'RELIANCE', 'RPOWER', 'SBFC',
+    'SBICARD', 'SBILIFE', 'SJVN', 'SRF', 'SAGILITY', 'SAILIFE', 'SAMMAANCAP', 'MOTHERSON',
+    'SAPPHIRE', 'SARDAEN', 'SAREGAMA', 'SCHAEFFLER', 'SCHNEIDER', 'SCI', 'SHREECEM',
+    'SHRIRAMFIN', 'SHYAMMETL', 'ENRIN', 'SIEMENS', 'SIGNATURE', 'SOBHA', 'SOLARINDS',
+    'SONACOMS', 'SONATSOFTW', 'STARHEALTH', 'SBIN', 'SAIL', 'SUMICHEM', 'SUNPHARMA', 'SUNTV',
+    'SUNDARMFIN', 'SUPREMEIND', 'SPLPETRO', 'SUZLON', 'SWANCORP', 'SWIGGY', 'SYNGENE',
+    'SYRMA', 'TBOTEK', 'TVSMOTOR', 'TATACAP', 'TATACHEM', 'TATACOMM', 'TCS', 'TATACONSUM',
+    'TATAELXSI', 'TATAINVEST', 'TMCV', 'TMPV', 'TATAPOWER', 'TATASTEEL', 'TATATECH', 'TTML',
+    'TECHM', 'TECHNOE', 'TEGA', 'TEJASNET', 'TENNIND', 'NIACL', 'RAMCOCEM', 'THERMAX',
+    'TIMKEN', 'TITAGARH', 'TITAN', 'TORNTPHARM', 'TORNTPOWER', 'TARIL', 'TRAVELFOOD', 'TRENT',
+    'TRIDENT', 'TRITURBINE', 'TIINDIA', 'UCOBANK', 'UNOMINDA', 'UPL', 'UTIAMC', 'ULTRACEMCO',
+    'UNIONBANK', 'UBL', 'UNITDSPR', 'URBANCO', 'USHAMART', 'VTL', 'VBL', 'VEDL', 'VIJAYA',
+    'VMM', 'IDEA', 'VOLTAS', 'WAAREEENER', 'WELCORP', 'WELSPUNLIV', 'WHIRLPOOL', 'WIPRO',
+    'WOCKPHARMA', 'YESBANK', 'ZFCVINDIA', 'ZEEL', 'ZENTEC', 'ZENSARTECH', 'ZYDUSLIFE',
+    'ZYDUSWELL', 'ECLERX',
+]
+NIFTY500 = sorted(set(f"{s}.NS" for s in _NIFTY500_SYMBOLS))
+
+# 2026-09-19: reverting scan universe to Nifty50-only per user request --
+# extended mid/small-cap names surfaced several data/logic discrepancies
+# that need to be nailed down on the validated Nifty50 set first. EXTENDED
+# stays defined so it's a one-line change to bring back once Nifty50 is solid.
+UNIVERSE = NIFTY50
+
+# Broad/sector indices for the "Indices" toggle. Yahoo Finance's NSE index
+# coverage is poor -- tested 15 candidate index tickers (Nifty Auto, FMCG,
+# Metal, Energy, Media, PSU Bank, Realty, Fin Service, Midcap 100, Next 50,
+# Smallcap 100), only these 4 returned usable history (the rest gave 0-1
+# rows). Not a code bug -- Yahoo just doesn't carry most NSE sector index
+# history. Ticker -> display name.
+INDICES = {
+    '^NSEI': 'NIFTY 50',
+    '^NSEBANK': 'NIFTY BANK',
+    '^CNXIT': 'NIFTY IT',
+    '^CNXPHARMA': 'NIFTY PHARMA',
+}
