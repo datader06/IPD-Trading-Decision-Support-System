@@ -87,7 +87,7 @@ export default function MLInsights({ setup }: { setup: Setup | null }) {
             })}
           </ul>
           <p className="mt-4 text-xs leading-relaxed text-dim">
-            Explains and compares; does not predict. Seven walk-forward experiments ({desk?.ml_meta.history_rows ?? 328} trades, 2015–2026) found no reliable ML edge over the rules.
+            Explains and compares; does not predict. Walk-forward experiments on the v6 trades ({desk?.ml_meta.history_rows ?? 205}, 2021–2026) found no reliable ML edge over the rules.
           </p>
         </>
       )}

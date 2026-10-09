@@ -10,12 +10,12 @@ export default function Baselines() {
   useEffect(() => {
     loadDesk().then((d) => {
       if (!d) return
-      const pick = [['v6', 'v6 final'], ['v6_holdout', '2026'], ['oos', '2015–20'], ['v5', 'v5']] as const
+      const pick = [['v6', 'v6 final'], ['v6_train', 'Train'], ['v6_holdout', '2026'], ['v5', 'v5']] as const
       const next: BaselineSet[] = pick.map(([k, short]) => ({
         id: k,
         title: short,
         window: d.baselines[k].window,
-        source: k === 'oos' ? 'final engine re-run on 2015–2020 bars, rules frozen' : 'STATUS.md sections 16–19',
+        source: 'STATUS.md sections 16–19',
         rows: d.baselines[k].rows.map((r) => ({ combo: r.combo, label: COMBO_LABEL[r.combo], n: r.n, winRate: r.win_rate ?? 0, ci: [r.ci[0] ?? 0, r.ci[1] ?? 0] as [number, number], avgR: r.avg_r ?? 0, pnl: r.pnl })),
       }))
       setSets(next)
@@ -81,7 +81,7 @@ export default function Baselines() {
         </table>
       </div>
       <p className="mt-3 text-xs leading-relaxed text-dim">
-        Gross of costs, Rs 1,000 risk per trade. Brackets are 95% intervals. v6 cutoffs were chosen on 2021+ trades; the 2015–2020 set was never seen when choosing them, so it is the honest out-of-sample check.
+        Gross of costs, Rs 1,000 risk per trade. Brackets are 95% intervals. v6 cutoffs were chosen on these trades, so treat the win rates as optimistic; the 2026 holdout is under 40 trades.
       </p>
     </section>
   )

@@ -34,7 +34,7 @@ export default function Research() {
           <p className="text-xs uppercase tracking-[0.18em] text-accent">Research · ML layer</p>
           <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Rules decide. ML explains, compares and checks.</h1>
           <p className="mt-3 max-w-[70ch] text-sm leading-relaxed text-dim">
-            The deterministic engine picks every trade. The ML layer was tested as a trade filter in seven preregistered walk-forward experiments and did not beat the rules
+            The deterministic engine picks every trade. The ML layer was tested as a trade filter in preregistered walk-forward experiments and did not beat the rules
             reliably, so it ships as decision support on the desk and as a validation bench for every algorithm change.
           </p>
         </header>
@@ -60,32 +60,31 @@ export default function Research() {
               </Use>
             </section>
 
-            <section className="panel rounded-2xl glass p-5" aria-labelledby="oos-h">
-              <h2 id="oos-h" className="font-semibold">
-                Final baseline v6: chosen years vs unseen years
+            <section className="panel rounded-2xl glass p-5" aria-labelledby="v6-h">
+              <h2 id="v6-h" className="font-semibold">
+                Final baseline v6: train vs 2026 holdout
               </h2>
               <p className="mt-1 text-xs leading-relaxed text-dim">
-                v6 cutoffs were chosen on 2021+ trades. 2015–2020 trades come from the same frozen rules re-run on older Kite bars, so they are the honest out-of-sample check. Gross,
-                Rs 1,000 risk per trade.
+                v6 = v5 plus zone strength 2 on DIT15 only (STATUS section 19). Gross, Rs 1,000 risk per trade. Cutoffs were chosen on these trades, so treat the win rates as optimistic.
               </p>
               <div className="mt-3 overflow-x-auto">
                 <table className="w-full min-w-[640px] text-sm">
-                  <caption className="sr-only">Win rate and R by combo, 2021+ vs 2015-2020</caption>
+                  <caption className="sr-only">Win rate and R by combo, train vs holdout</caption>
                   <thead className="text-left text-xs text-dim">
                     <tr>
                       <th className="py-2 pr-2 font-medium">Combo</th>
-                      <th className="py-2 pr-2 text-right font-medium">2021+ trades</th>
+                      <th className="py-2 pr-2 text-right font-medium">Train trades</th>
                       <th className="py-2 pr-2 text-right font-medium">Win rate</th>
                       <th className="py-2 pr-2 text-right font-medium">Avg R</th>
-                      <th className="py-2 pr-2 text-right font-medium">2015–20 trades</th>
+                      <th className="py-2 pr-2 text-right font-medium">2026 trades</th>
                       <th className="py-2 pr-2 text-right font-medium">Win rate</th>
                       <th className="py-2 text-right font-medium">Avg R</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-line/60">
                     {(['DIT15', 'WIT', 'MIT', 'ALL'] as const).map((c) => {
-                      const a = c === 'ALL' ? d.baselines.v6.all : d.baselines.v6.rows.find((r) => r.combo === c)!
-                      const b = c === 'ALL' ? d.baselines.oos.all : d.baselines.oos.rows.find((r) => r.combo === c)!
+                      const a = c === 'ALL' ? d.baselines.v6_train.all : d.baselines.v6_train.rows.find((r) => r.combo === c)!
+                      const b = c === 'ALL' ? d.baselines.v6_holdout.all : d.baselines.v6_holdout.rows.find((r) => r.combo === c)!
                       return (
                         <tr key={c} className={c === 'ALL' ? 'font-medium' : ''}>
                           <td className="py-2.5 pr-2">
@@ -101,8 +100,8 @@ export default function Research() {
                 </table>
               </div>
               <p className="mt-3 text-xs leading-relaxed text-dim">
-                Reading: the rules stay profitable on unseen years (avg R {sg(d.baselines.oos.all.avg_r)}, {inr(d.baselines.oos.all.pnl)} gross) but the win rate drops from{' '}
-                {d.baselines.v6.all.win_rate}% to {d.baselines.oos.all.win_rate}%. DIT15 holds best; WIT is near breakeven; MIT stays positive through its 3R target. Treat 44% as optimistic.
+                All 2021–2026: {d.baselines.v6.all.n} trades, {d.baselines.v6.all.win_rate}% win rate, avg R {sg(d.baselines.v6.all.avg_r)}, {inr(d.baselines.v6.all.pnl)} gross. Holdout slices under 30
+                trades are anecdotal.
               </p>
             </section>
 

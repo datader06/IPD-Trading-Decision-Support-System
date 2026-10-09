@@ -159,59 +159,6 @@
     "pnl": 26901
    }
   },
-  "oos": {
-   "title": "2015\u20132020",
-   "window": "Unseen years (out of sample)",
-   "rows": [
-    {
-     "combo": "DIT15",
-     "n": 52,
-     "wins": 20,
-     "win_rate": 38.5,
-     "ci": [
-      26,
-      52
-     ],
-     "avg_r": 0.163,
-     "pnl": 11504
-    },
-    {
-     "combo": "WIT",
-     "n": 32,
-     "wins": 9,
-     "win_rate": 28.1,
-     "ci": [
-      16,
-      45
-     ],
-     "avg_r": 0.012,
-     "pnl": 405
-    },
-    {
-     "combo": "MIT",
-     "n": 39,
-     "wins": 11,
-     "win_rate": 28.2,
-     "ci": [
-      17,
-      44
-     ],
-     "avg_r": 0.206,
-     "pnl": 8274
-    }
-   ],
-   "all": {
-    "n": 123,
-    "wins": 40,
-    "win_rate": 32.5,
-    "ci": [
-     25,
-     41
-    ],
-    "avg_r": 0.137,
-    "pnl": 20183
-   }
-  },
   "v5": {
    "title": "v5",
    "window": "2021\u20132026, before strength filter",
@@ -298,16 +245,6 @@
    "passed": false
   },
   {
-   "name": "Exp 7",
-   "what": "Win-rate filter, 2015\u20132025",
-   "data": "v6 ext, 248 test trades",
-   "best": "random_forest",
-   "metric": "+4.1 pts win rate",
-   "auc": 0.487,
-   "p": 0.116,
-   "passed": false
-  },
-  {
    "name": "Exp 6",
    "what": "Expected-R filter",
    "data": "v6, 117 test trades",
@@ -325,26 +262,6 @@
    "metric": "+1% per unit risk",
    "auc": null,
    "p": 0.455,
-   "passed": false
-  },
-  {
-   "name": "Exp 7",
-   "what": "Expected-R filter",
-   "data": "v6 ext, 248 test trades",
-   "best": "hist_gb_reg",
-   "metric": "+0.07 R/trade",
-   "auc": null,
-   "p": 0.21,
-   "passed": false
-  },
-  {
-   "name": "Exp 7",
-   "what": "ML position sizing",
-   "data": "v6 ext, 248 test trades",
-   "best": "hist_gb",
-   "metric": "-5% per unit risk",
-   "auc": null,
-   "p": 0.664,
    "passed": false
   }
  ],
@@ -375,17 +292,8 @@
       "type": "supply",
       "win": 0,
       "r": -0.173,
-      "era": "2021+",
-      "distance": 1.01
-     },
-     {
-      "ticker": "NTPC.NS",
-      "entry_time": "2025-01-15 09:30",
-      "type": "supply",
-      "win": 0,
-      "r": -1.0,
-      "era": "2021+",
-      "distance": 1.21
+      "era": "train",
+      "distance": 1.38
      },
      {
       "ticker": "COCHINSHIP.NS",
@@ -393,8 +301,17 @@
       "type": "supply",
       "win": 0,
       "r": -0.83,
-      "era": "2021+",
-      "distance": 1.35
+      "era": "train",
+      "distance": 1.52
+     },
+     {
+      "ticker": "NTPC.NS",
+      "entry_time": "2025-01-15 09:30",
+      "type": "supply",
+      "win": 0,
+      "r": -1.0,
+      "era": "train",
+      "distance": 1.62
      },
      {
       "ticker": "GMRAIRPORT.NS",
@@ -402,8 +319,8 @@
       "type": "supply",
       "win": 1,
       "r": 2.0,
-      "era": "2021+",
-      "distance": 1.48
+      "era": "holdout",
+      "distance": 1.8
      },
      {
       "ticker": "TCS.NS",
@@ -411,17 +328,8 @@
       "type": "supply",
       "win": 1,
       "r": 2.0,
-      "era": "2021+",
-      "distance": 1.59
-     },
-     {
-      "ticker": "AMBUJACEM.NS",
-      "entry_time": "2026-02-03 09:15",
-      "type": "supply",
-      "win": 0,
-      "r": -0.0,
-      "era": "2021+",
-      "distance": 1.64
+      "era": "train",
+      "distance": 1.94
      },
      {
       "ticker": "ABBOTINDIA.NS",
@@ -429,17 +337,17 @@
       "type": "supply",
       "win": 0,
       "r": -1.0,
-      "era": "2021+",
-      "distance": 1.65
+      "era": "holdout",
+      "distance": 1.95
      },
      {
-      "ticker": "TATAPOWER.NS",
-      "entry_time": "2015-06-12 15:15",
+      "ticker": "AMBUJACEM.NS",
+      "entry_time": "2026-02-03 09:15",
       "type": "supply",
       "win": 0,
-      "r": -1.0,
-      "era": "2015-2020",
-      "distance": 1.66
+      "r": -0.0,
+      "era": "holdout",
+      "distance": 2.02
      },
      {
       "ticker": "AMBUJACEM.NS",
@@ -447,8 +355,8 @@
       "type": "supply",
       "win": 0,
       "r": -1.0,
-      "era": "2021+",
-      "distance": 1.94
+      "era": "holdout",
+      "distance": 2.51
      },
      {
       "ticker": "YESBANK.NS",
@@ -456,70 +364,79 @@
       "type": "supply",
       "win": 1,
       "r": 2.0,
-      "era": "2021+",
-      "distance": 2.0
+      "era": "holdout",
+      "distance": 2.61
+     },
+     {
+      "ticker": "SHREECEM.NS",
+      "entry_time": "2026-04-15 09:15",
+      "type": "supply",
+      "win": 0,
+      "r": -1.0,
+      "era": "holdout",
+      "distance": 2.64
      }
     ],
     "similar_win_rate": 0.3,
-    "similar_avg_r": 0.09969999999999998,
+    "similar_avg_r": 0.09970000000000001,
     "unusual": false,
-    "novelty_pct": 48.68421052631579,
+    "novelty_pct": 43.0,
     "features": [
      {
       "name": "risk_pct",
       "label": "Stop distance (% of price)",
       "value": 0.202,
       "pct": 0.0,
-      "contribution": -0.652
+      "contribution": -0.017
      },
      {
       "name": "htf_width_pct",
       "label": "HTF zone width (% of price)",
       "value": 1.593,
-      "pct": 16.0,
-      "contribution": 0.169
+      "pct": 22.0,
+      "contribution": -0.074
      },
      {
       "name": "entry_to_htf_pct",
       "label": "Entry depth inside HTF zone (%)",
       "value": 0.072,
-      "pct": 10.0,
-      "contribution": -0.055
+      "pct": 9.0,
+      "contribution": -0.039
      },
      {
       "name": "risk_atr_d",
       "label": "Stop distance in daily ATRs",
       "value": 0.102,
-      "pct": 3.0,
-      "contribution": 0.06
+      "pct": 1.0,
+      "contribution": -0.008
      },
      {
       "name": "stock_rs63",
       "label": "Stock vs NIFTY, last 63 days",
       "value": 0.007,
-      "pct": 62.0,
-      "contribution": 0.014
+      "pct": 59.0,
+      "contribution": 0.007
      },
      {
       "name": "nifty_above_200dma",
       "label": "NIFTY above 200-day average",
       "value": 0.0,
       "pct": 0.0,
-      "contribution": -0.094
+      "contribution": -0.177
      },
      {
       "name": "log_htf_age_days",
       "label": "Age of HTF zone (log days)",
       "value": 1.609,
       "pct": 28.0,
-      "contribution": 0.158
+      "contribution": 0.179
      },
      {
       "name": "type_demand",
       "label": "Demand zone (1) / supply (0)",
       "value": 0.0,
       "pct": 0.0,
-      "contribution": -0.164
+      "contribution": -0.182
      }
     ]
    }
@@ -550,17 +467,8 @@
       "type": "demand",
       "win": 0,
       "r": -1.0,
-      "era": "2021+",
-      "distance": 1.53
-     },
-     {
-      "ticker": "JMFINANCIL.NS",
-      "entry_time": "2016-11-21 10:15",
-      "type": "demand",
-      "win": 1,
-      "r": 2.0,
-      "era": "2015-2020",
-      "distance": 1.98
+      "era": "train",
+      "distance": 2.08
      },
      {
       "ticker": "BRIGADE.NS",
@@ -568,8 +476,8 @@
       "type": "demand",
       "win": 0,
       "r": -1.0,
-      "era": "2021+",
-      "distance": 2.54
+      "era": "holdout",
+      "distance": 3.02
      },
      {
       "ticker": "SIEMENS.NS",
@@ -577,8 +485,8 @@
       "type": "demand",
       "win": 1,
       "r": 2.0,
-      "era": "2021+",
-      "distance": 2.65
+      "era": "train",
+      "distance": 3.05
      },
      {
       "ticker": "ASAHIINDIA.NS",
@@ -586,26 +494,8 @@
       "type": "demand",
       "win": 1,
       "r": 2.0,
-      "era": "2021+",
-      "distance": 2.78
-     },
-     {
-      "ticker": "GMDCLTD.NS",
-      "entry_time": "2026-03-04 12:00",
-      "type": "demand",
-      "win": 0,
-      "r": -1.0,
-      "era": "2021+",
-      "distance": 3.0
-     },
-     {
-      "ticker": "M&MFIN.NS",
-      "entry_time": "2023-10-30 09:15",
-      "type": "demand",
-      "win": 0,
-      "r": -0.024,
-      "era": "2021+",
-      "distance": 3.04
+      "era": "train",
+      "distance": 3.25
      },
      {
       "ticker": "FEDERALBNK.NS",
@@ -613,8 +503,8 @@
       "type": "demand",
       "win": 0,
       "r": -1.0,
-      "era": "2021+",
-      "distance": 3.12
+      "era": "train",
+      "distance": 3.34
      },
      {
       "ticker": "SHREECEM.NS",
@@ -622,79 +512,106 @@
       "type": "supply",
       "win": 0,
       "r": -1.0,
-      "era": "2021+",
-      "distance": 3.27
+      "era": "holdout",
+      "distance": 3.55
      },
      {
-      "ticker": "TATACHEM.NS",
-      "entry_time": "2024-06-04 11:00",
+      "ticker": "M&MFIN.NS",
+      "entry_time": "2023-10-30 09:15",
+      "type": "demand",
+      "win": 0,
+      "r": -0.024,
+      "era": "train",
+      "distance": 3.62
+     },
+     {
+      "ticker": "COCHINSHIP.NS",
+      "entry_time": "2022-03-11 09:15",
+      "type": "supply",
+      "win": 0,
+      "r": -0.83,
+      "era": "train",
+      "distance": 3.78
+     },
+     {
+      "ticker": "GMDCLTD.NS",
+      "entry_time": "2026-03-04 12:00",
       "type": "demand",
       "win": 0,
       "r": -1.0,
-      "era": "2021+",
-      "distance": 3.28
+      "era": "holdout",
+      "distance": 3.91
+     },
+     {
+      "ticker": "FEDERALBNK.NS",
+      "entry_time": "2022-01-24 13:30",
+      "type": "demand",
+      "win": 0,
+      "r": -1.0,
+      "era": "train",
+      "distance": 3.97
      }
     ],
-    "similar_win_rate": 0.3,
-    "similar_avg_r": -0.002400000000000002,
-    "unusual": false,
-    "novelty_pct": 90.13157894736842,
+    "similar_win_rate": 0.2,
+    "similar_avg_r": -0.2854,
+    "unusual": true,
+    "novelty_pct": 96.0,
     "features": [
      {
       "name": "risk_pct",
       "label": "Stop distance (% of price)",
       "value": 0.184,
       "pct": 0.0,
-      "contribution": -0.668
+      "contribution": -0.018
      },
      {
       "name": "htf_width_pct",
       "label": "HTF zone width (% of price)",
       "value": 1.022,
       "pct": 3.0,
-      "contribution": 0.254
+      "contribution": -0.129
      },
      {
       "name": "entry_to_htf_pct",
       "label": "Entry depth inside HTF zone (%)",
       "value": 0.013,
-      "pct": 4.0,
-      "contribution": -0.062
+      "pct": 3.0,
+      "contribution": -0.045
      },
      {
       "name": "risk_atr_d",
       "label": "Stop distance in daily ATRs",
       "value": 0.089,
-      "pct": 1.0,
-      "contribution": 0.065
+      "pct": 0.0,
+      "contribution": -0.008
      },
      {
       "name": "stock_rs63",
       "label": "Stock vs NIFTY, last 63 days",
       "value": 0.034,
-      "pct": 65.0,
-      "contribution": 0.001
+      "pct": 62.0,
+      "contribution": -0.0
      },
      {
       "name": "nifty_above_200dma",
       "label": "NIFTY above 200-day average",
       "value": 0.0,
       "pct": 0.0,
-      "contribution": -0.094
+      "contribution": -0.177
      },
      {
       "name": "log_htf_age_days",
       "label": "Age of HTF zone (log days)",
       "value": 5.649,
       "pct": 99.0,
-      "contribution": -0.769
+      "contribution": -0.866
      },
      {
       "name": "type_demand",
       "label": "Demand zone (1) / supply (0)",
       "value": 1.0,
-      "pct": 36.0,
-      "contribution": 0.09
+      "pct": 38.0,
+      "contribution": 0.112
      }
     ]
    }
@@ -725,17 +642,8 @@
       "type": "supply",
       "win": 1,
       "r": 2.0,
-      "era": "2021+",
-      "distance": 0.62
-     },
-     {
-      "ticker": "TATAPOWER.NS",
-      "entry_time": "2015-06-12 15:15",
-      "type": "supply",
-      "win": 0,
-      "r": -1.0,
-      "era": "2015-2020",
-      "distance": 0.73
+      "era": "holdout",
+      "distance": 0.71
      },
      {
       "ticker": "TCS.NS",
@@ -743,8 +651,8 @@
       "type": "supply",
       "win": 1,
       "r": 2.0,
-      "era": "2021+",
-      "distance": 0.81
+      "era": "train",
+      "distance": 1.21
      },
      {
       "ticker": "AMBUJACEM.NS",
@@ -752,26 +660,8 @@
       "type": "supply",
       "win": 0,
       "r": -1.0,
-      "era": "2021+",
-      "distance": 0.82
-     },
-     {
-      "ticker": "NTPC.NS",
-      "entry_time": "2025-01-15 09:30",
-      "type": "supply",
-      "win": 0,
-      "r": -1.0,
-      "era": "2021+",
-      "distance": 1.16
-     },
-     {
-      "ticker": "DEEPAKFERT.NS",
-      "entry_time": "2015-06-18 13:00",
-      "type": "supply",
-      "win": 0,
-      "r": -1.0,
-      "era": "2015-2020",
-      "distance": 1.19
+      "era": "holdout",
+      "distance": 1.21
      },
      {
       "ticker": "AMBUJACEM.NS",
@@ -779,26 +669,17 @@
       "type": "supply",
       "win": 0,
       "r": -0.0,
-      "era": "2021+",
-      "distance": 1.31
+      "era": "holdout",
+      "distance": 1.51
      },
      {
-      "ticker": "ABBOTINDIA.NS",
-      "entry_time": "2026-03-24 14:30",
+      "ticker": "NTPC.NS",
+      "entry_time": "2025-01-15 09:30",
       "type": "supply",
       "win": 0,
       "r": -1.0,
-      "era": "2021+",
-      "distance": 1.37
-     },
-     {
-      "ticker": "GMRAIRPORT.NS",
-      "entry_time": "2026-09-07 09:15",
-      "type": "supply",
-      "win": 1,
-      "r": 2.0,
-      "era": "2021+",
-      "distance": 1.46
+      "era": "train",
+      "distance": 1.51
      },
      {
       "ticker": "TATACHEM.NS",
@@ -806,70 +687,106 @@
       "type": "supply",
       "win": 0,
       "r": -0.173,
-      "era": "2021+",
-      "distance": 1.47
+      "era": "train",
+      "distance": 1.7
+     },
+     {
+      "ticker": "ABBOTINDIA.NS",
+      "entry_time": "2026-03-24 14:30",
+      "type": "supply",
+      "win": 0,
+      "r": -1.0,
+      "era": "holdout",
+      "distance": 1.96
+     },
+     {
+      "ticker": "GMRAIRPORT.NS",
+      "entry_time": "2026-09-07 09:15",
+      "type": "supply",
+      "win": 1,
+      "r": 2.0,
+      "era": "holdout",
+      "distance": 1.99
+     },
+     {
+      "ticker": "COCHINSHIP.NS",
+      "entry_time": "2022-03-11 09:15",
+      "type": "supply",
+      "win": 0,
+      "r": -0.83,
+      "era": "train",
+      "distance": 2.19
+     },
+     {
+      "ticker": "BANKBARODA.NS",
+      "entry_time": "2024-10-24 10:45",
+      "type": "supply",
+      "win": 1,
+      "r": 2.0,
+      "era": "train",
+      "distance": 2.35
      }
     ],
-    "similar_win_rate": 0.3,
-    "similar_avg_r": 0.0827,
+    "similar_win_rate": 0.4,
+    "similar_avg_r": 0.3997,
     "unusual": false,
-    "novelty_pct": 23.684210526315788,
+    "novelty_pct": 20.0,
     "features": [
      {
       "name": "risk_pct",
       "label": "Stop distance (% of price)",
       "value": 0.593,
-      "pct": 29.0,
-      "contribution": -0.304
+      "pct": 34.0,
+      "contribution": -0.006
      },
      {
       "name": "htf_width_pct",
       "label": "HTF zone width (% of price)",
       "value": 2.835,
-      "pct": 62.0,
-      "contribution": -0.017
+      "pct": 71.0,
+      "contribution": 0.046
      },
      {
       "name": "entry_to_htf_pct",
       "label": "Entry depth inside HTF zone (%)",
       "value": 0.296,
-      "pct": 41.0,
-      "contribution": -0.028
+      "pct": 49.0,
+      "contribution": -0.017
      },
      {
       "name": "risk_atr_d",
       "label": "Stop distance in daily ATRs",
       "value": 0.239,
       "pct": 56.0,
-      "contribution": 0.003
+      "contribution": -0.0
      },
      {
       "name": "stock_rs63",
       "label": "Stock vs NIFTY, last 63 days",
       "value": -0.043,
-      "pct": 50.0,
-      "contribution": 0.038
+      "pct": 46.0,
+      "contribution": 0.02
      },
      {
       "name": "nifty_above_200dma",
       "label": "NIFTY above 200-day average",
       "value": 0.0,
       "pct": 0.0,
-      "contribution": -0.094
+      "contribution": -0.177
      },
      {
       "name": "log_htf_age_days",
       "label": "Age of HTF zone (log days)",
       "value": 1.386,
-      "pct": 21.0,
-      "contribution": 0.21
+      "pct": 20.0,
+      "contribution": 0.237
      },
      {
       "name": "type_demand",
       "label": "Demand zone (1) / supply (0)",
       "value": 0.0,
       "pct": 0.0,
-      "contribution": -0.164
+      "contribution": -0.182
      }
     ]
    }
@@ -900,8 +817,8 @@
       "type": "supply",
       "win": 0,
       "r": -1.0,
-      "era": "2021+",
-      "distance": 1.23
+      "era": "train",
+      "distance": 1.47
      },
      {
       "ticker": "AMBUJACEM.NS",
@@ -909,44 +826,8 @@
       "type": "supply",
       "win": 0,
       "r": -0.0,
-      "era": "2021+",
-      "distance": 2.26
-     },
-     {
-      "ticker": "BIOCON.NS",
-      "entry_time": "2020-09-01 09:30",
-      "type": "supply",
-      "win": 0,
-      "r": -1.0,
-      "era": "2015-2020",
-      "distance": 2.31
-     },
-     {
-      "ticker": "HINDPETRO.NS",
-      "entry_time": "2020-03-16 10:45",
-      "type": "supply",
-      "win": 0,
-      "r": -1.0,
-      "era": "2015-2020",
-      "distance": 2.47
-     },
-     {
-      "ticker": "ASHOKLEY.NS",
-      "entry_time": "2016-09-07 14:15",
-      "type": "supply",
-      "win": 1,
-      "r": 2.0,
-      "era": "2015-2020",
-      "distance": 2.78
-     },
-     {
-      "ticker": "IGL.NS",
-      "entry_time": "2026-03-11 14:15",
-      "type": "supply",
-      "win": 1,
-      "r": 2.0,
-      "era": "2021+",
-      "distance": 2.8
+      "era": "holdout",
+      "distance": 2.45
      },
      {
       "ticker": "ADANIENT.NS",
@@ -954,17 +835,26 @@
       "type": "supply",
       "win": 0,
       "r": -1.0,
-      "era": "2021+",
-      "distance": 2.95
+      "era": "train",
+      "distance": 3.14
      },
      {
-      "ticker": "TMPV.NS",
-      "entry_time": "2020-06-12 09:15",
+      "ticker": "IGL.NS",
+      "entry_time": "2026-03-11 14:15",
+      "type": "supply",
+      "win": 1,
+      "r": 2.0,
+      "era": "holdout",
+      "distance": 3.31
+     },
+     {
+      "ticker": "JBMA.NS",
+      "entry_time": "2025-07-28 15:15",
       "type": "demand",
-      "win": 0,
-      "r": 0.0,
-      "era": "2015-2020",
-      "distance": 2.95
+      "win": 1,
+      "r": 2.0,
+      "era": "train",
+      "distance": 3.55
      },
      {
       "ticker": "ABBOTINDIA.NS",
@@ -972,79 +862,106 @@
       "type": "supply",
       "win": 0,
       "r": -1.0,
-      "era": "2021+",
-      "distance": 3.0
+      "era": "holdout",
+      "distance": 3.56
      },
      {
-      "ticker": "TATASTEEL.NS",
-      "entry_time": "2016-01-07 12:00",
-      "type": "demand",
+      "ticker": "TCS.NS",
+      "entry_time": "2022-05-27 09:15",
+      "type": "supply",
+      "win": 1,
+      "r": 2.0,
+      "era": "train",
+      "distance": 3.58
+     },
+     {
+      "ticker": "TATACHEM.NS",
+      "entry_time": "2022-03-03 09:15",
+      "type": "supply",
+      "win": 0,
+      "r": -0.173,
+      "era": "train",
+      "distance": 3.62
+     },
+     {
+      "ticker": "AMBUJACEM.NS",
+      "entry_time": "2026-03-25 09:15",
+      "type": "supply",
       "win": 0,
       "r": -1.0,
-      "era": "2015-2020",
-      "distance": 3.01
+      "era": "holdout",
+      "distance": 3.67
+     },
+     {
+      "ticker": "NTPC.NS",
+      "entry_time": "2025-01-15 09:30",
+      "type": "supply",
+      "win": 0,
+      "r": -1.0,
+      "era": "train",
+      "distance": 3.75
      }
     ],
-    "similar_win_rate": 0.2,
-    "similar_avg_r": -0.2,
-    "unusual": false,
-    "novelty_pct": 90.13157894736842,
+    "similar_win_rate": 0.3,
+    "similar_avg_r": 0.0827,
+    "unusual": true,
+    "novelty_pct": 97.0,
     "features": [
      {
       "name": "risk_pct",
       "label": "Stop distance (% of price)",
       "value": 0.294,
       "pct": 1.0,
-      "contribution": -0.571
+      "contribution": -0.015
      },
      {
       "name": "htf_width_pct",
       "label": "HTF zone width (% of price)",
       "value": 2.828,
-      "pct": 61.0,
-      "contribution": -0.016
+      "pct": 70.0,
+      "contribution": 0.045
      },
      {
       "name": "entry_to_htf_pct",
       "label": "Entry depth inside HTF zone (%)",
       "value": 1.82,
       "pct": 97.0,
-      "contribution": 0.155
+      "contribution": 0.132
      },
      {
       "name": "risk_atr_d",
       "label": "Stop distance in daily ATRs",
       "value": 0.123,
-      "pct": 5.0,
-      "contribution": 0.051
+      "pct": 2.0,
+      "contribution": -0.007
      },
      {
       "name": "stock_rs63",
       "label": "Stock vs NIFTY, last 63 days",
       "value": -0.136,
-      "pct": 15.0,
-      "contribution": 0.082
+      "pct": 9.0,
+      "contribution": 0.044
      },
      {
       "name": "nifty_above_200dma",
       "label": "NIFTY above 200-day average",
       "value": 0.0,
       "pct": 0.0,
-      "contribution": -0.094
+      "contribution": -0.177
      },
      {
       "name": "log_htf_age_days",
       "label": "Age of HTF zone (log days)",
       "value": 0.693,
       "pct": 0.0,
-      "contribution": 0.369
+      "contribution": 0.416
      },
      {
       "name": "type_demand",
       "label": "Demand zone (1) / supply (0)",
       "value": 0.0,
       "pct": 0.0,
-      "contribution": -0.164
+      "contribution": -0.182
      }
     ]
    }
@@ -1075,26 +992,8 @@
       "type": "demand",
       "win": 1,
       "r": 2.0,
-      "era": "2021+",
-      "distance": 0.57
-     },
-     {
-      "ticker": "EIHOTEL.NS",
-      "entry_time": "2018-10-05 08:00",
-      "type": "demand",
-      "win": 1,
-      "r": 2.0,
-      "era": "2015-2020",
-      "distance": 0.88
-     },
-     {
-      "ticker": "TORNTPOWER.NS",
-      "entry_time": "2020-03-13 10:00",
-      "type": "demand",
-      "win": 0,
-      "r": -1.0,
-      "era": "2015-2020",
-      "distance": 1.68
+      "era": "train",
+      "distance": 0.61
      },
      {
       "ticker": "DALBHARAT.NS",
@@ -1102,35 +1001,8 @@
       "type": "demand",
       "win": 0,
       "r": -1.0,
-      "era": "2021+",
-      "distance": 2.3
-     },
-     {
-      "ticker": "BANKBARODA.NS",
-      "entry_time": "2015-11-06 08:00",
-      "type": "demand",
-      "win": 0,
-      "r": 0.0,
-      "era": "2015-2020",
-      "distance": 2.36
-     },
-     {
-      "ticker": "TATACOMM.NS",
-      "entry_time": "2023-10-23 14:00",
-      "type": "demand",
-      "win": 0,
-      "r": -1.0,
-      "era": "2021+",
+      "era": "holdout",
       "distance": 2.49
-     },
-     {
-      "ticker": "EIDPARRY.NS",
-      "entry_time": "2025-12-09 08:00",
-      "type": "demand",
-      "win": 1,
-      "r": 2.0,
-      "era": "2021+",
-      "distance": 2.52
      },
      {
       "ticker": "EICHERMOT.NS",
@@ -1138,17 +1010,26 @@
       "type": "supply",
       "win": 1,
       "r": 2.0,
-      "era": "2021+",
-      "distance": 2.59
+      "era": "holdout",
+      "distance": 2.52
      },
      {
-      "ticker": "M&M.NS",
-      "entry_time": "2018-02-20 12:00",
+      "ticker": "TATACOMM.NS",
+      "entry_time": "2023-10-23 14:00",
       "type": "demand",
       "win": 0,
       "r": -1.0,
-      "era": "2015-2020",
-      "distance": 2.6
+      "era": "train",
+      "distance": 2.79
+     },
+     {
+      "ticker": "EIDPARRY.NS",
+      "entry_time": "2025-12-09 08:00",
+      "type": "demand",
+      "win": 1,
+      "r": 2.0,
+      "era": "train",
+      "distance": 2.85
      },
      {
       "ticker": "TRENT.NS",
@@ -1156,70 +1037,106 @@
       "type": "demand",
       "win": 1,
       "r": 2.0,
-      "era": "2021+",
-      "distance": 2.67
+      "era": "holdout",
+      "distance": 2.87
+     },
+     {
+      "ticker": "VEDL.NS",
+      "entry_time": "2022-12-23 14:00",
+      "type": "demand",
+      "win": 0,
+      "r": -1.0,
+      "era": "train",
+      "distance": 2.98
+     },
+     {
+      "ticker": "TECHM.NS",
+      "entry_time": "2023-04-17 08:00",
+      "type": "demand",
+      "win": 0,
+      "r": -1.0,
+      "era": "train",
+      "distance": 3.08
+     },
+     {
+      "ticker": "SBICARD.NS",
+      "entry_time": "2021-10-29 08:00",
+      "type": "demand",
+      "win": 0,
+      "r": -1.0,
+      "era": "train",
+      "distance": 3.43
+     },
+     {
+      "ticker": "IDBI.NS",
+      "entry_time": "2022-09-26 10:00",
+      "type": "demand",
+      "win": 1,
+      "r": 2.0,
+      "era": "train",
+      "distance": 3.47
      }
     ],
     "similar_win_rate": 0.5,
-    "similar_avg_r": 0.6,
+    "similar_avg_r": 0.5,
     "unusual": false,
-    "novelty_pct": 67.64705882352942,
+    "novelty_pct": 74.28571428571429,
     "features": [
      {
       "name": "risk_pct",
       "label": "Stop distance (% of price)",
       "value": 0.68,
-      "pct": 3.0,
-      "contribution": 0.516
+      "pct": 1.0,
+      "contribution": 0.184
      },
      {
       "name": "htf_width_pct",
       "label": "HTF zone width (% of price)",
       "value": 4.488,
-      "pct": 22.0,
-      "contribution": -0.14
+      "pct": 24.0,
+      "contribution": -0.06
      },
      {
       "name": "entry_to_htf_pct",
       "label": "Entry depth inside HTF zone (%)",
       "value": 0.336,
-      "pct": 22.0,
-      "contribution": -0.073
+      "pct": 24.0,
+      "contribution": 0.006
      },
      {
       "name": "risk_atr_d",
       "label": "Stop distance in daily ATRs",
       "value": 0.328,
-      "pct": 25.0,
-      "contribution": -0.232
+      "pct": 26.0,
+      "contribution": -0.175
      },
      {
       "name": "stock_rs63",
       "label": "Stock vs NIFTY, last 63 days",
       "value": 0.034,
-      "pct": 38.0,
-      "contribution": -0.014
+      "pct": 36.0,
+      "contribution": 0.025
      },
      {
       "name": "nifty_above_200dma",
       "label": "NIFTY above 200-day average",
       "value": 0.0,
       "pct": 0.0,
-      "contribution": 0.1
+      "contribution": 0.599
      },
      {
       "name": "log_htf_age_days",
       "label": "Age of HTF zone (log days)",
       "value": 5.606,
-      "pct": 98.0,
-      "contribution": 0.604
+      "pct": 99.0,
+      "contribution": 0.919
      },
      {
       "name": "type_demand",
       "label": "Demand zone (1) / supply (0)",
       "value": 1.0,
-      "pct": 23.0,
-      "contribution": -0.091
+      "pct": 26.0,
+      "contribution": -0.04
      }
     ]
    }
@@ -1245,22 +1162,13 @@
     "available": true,
     "similar": [
      {
-      "ticker": "PETRONET.NS",
-      "entry_time": "2020-05-29 14:00",
-      "type": "supply",
-      "win": 1,
-      "r": 2.0,
-      "era": "2015-2020",
-      "distance": 1.45
-     },
-     {
       "ticker": "EICHERMOT.NS",
       "entry_time": "2026-06-15 12:00",
       "type": "supply",
       "win": 1,
       "r": 2.0,
-      "era": "2021+",
-      "distance": 1.71
+      "era": "holdout",
+      "distance": 1.96
      },
      {
       "ticker": "TITAN.NS",
@@ -1268,35 +1176,8 @@
       "type": "supply",
       "win": 1,
       "r": 2.0,
-      "era": "2021+",
-      "distance": 2.32
-     },
-     {
-      "ticker": "BIOCON.NS",
-      "entry_time": "2023-12-15 08:00",
-      "type": "supply",
-      "win": 1,
-      "r": 2.565,
-      "era": "2021+",
-      "distance": 2.48
-     },
-     {
-      "ticker": "LAURUSLABS.NS",
-      "entry_time": "2018-11-16 10:00",
-      "type": "supply",
-      "win": 1,
-      "r": 2.0,
-      "era": "2015-2020",
-      "distance": 2.52
-     },
-     {
-      "ticker": "BAJFINANCE.NS",
-      "entry_time": "2021-12-09 10:00",
-      "type": "supply",
-      "win": 1,
-      "r": 2.0,
-      "era": "2021+",
-      "distance": 2.62
+      "era": "train",
+      "distance": 2.64
      },
      {
       "ticker": "DALBHARAT.NS",
@@ -1304,8 +1185,26 @@
       "type": "demand",
       "win": 0,
       "r": -1.0,
-      "era": "2021+",
-      "distance": 2.72
+      "era": "holdout",
+      "distance": 2.75
+     },
+     {
+      "ticker": "BIOCON.NS",
+      "entry_time": "2023-12-15 08:00",
+      "type": "supply",
+      "win": 1,
+      "r": 2.565,
+      "era": "train",
+      "distance": 2.83
+     },
+     {
+      "ticker": "BAJFINANCE.NS",
+      "entry_time": "2021-12-09 10:00",
+      "type": "supply",
+      "win": 1,
+      "r": 2.0,
+      "era": "train",
+      "distance": 2.94
      },
      {
       "ticker": "PFC.NS",
@@ -1313,17 +1212,26 @@
       "type": "supply",
       "win": 1,
       "r": 2.0,
-      "era": "2021+",
-      "distance": 2.74
+      "era": "train",
+      "distance": 3.1
      },
      {
-      "ticker": "TCS.NS",
-      "entry_time": "2018-04-12 08:00",
+      "ticker": "HINDUNILVR.NS",
+      "entry_time": "2025-01-23 08:00",
+      "type": "demand",
+      "win": 1,
+      "r": 2.0,
+      "era": "train",
+      "distance": 3.1
+     },
+     {
+      "ticker": "NATCOPHARM.NS",
+      "entry_time": "2023-11-12 18:00",
       "type": "supply",
       "win": 0,
-      "r": -1.0,
-      "era": "2015-2020",
-      "distance": 2.78
+      "r": -0.0,
+      "era": "train",
+      "distance": 3.13
      },
      {
       "ticker": "CPPLUS.NS",
@@ -1331,70 +1239,79 @@
       "type": "supply",
       "win": 0,
       "r": -1.0,
-      "era": "2021+",
-      "distance": 2.78
+      "era": "holdout",
+      "distance": 3.17
+     },
+     {
+      "ticker": "VTL.NS",
+      "entry_time": "2022-03-03 08:00",
+      "type": "supply",
+      "win": 1,
+      "r": 2.0,
+      "era": "train",
+      "distance": 3.2
      }
     ],
     "similar_win_rate": 0.7,
-    "similar_avg_r": 1.1564999999999999,
+    "similar_avg_r": 1.2565,
     "unusual": false,
-    "novelty_pct": 74.50980392156863,
+    "novelty_pct": 77.14285714285715,
     "features": [
      {
       "name": "risk_pct",
       "label": "Stop distance (% of price)",
       "value": 1.358,
-      "pct": 35.0,
-      "contribution": 0.274
+      "pct": 36.0,
+      "contribution": 0.086
      },
      {
       "name": "htf_width_pct",
       "label": "HTF zone width (% of price)",
       "value": 2.495,
       "pct": 1.0,
-      "contribution": -0.264
+      "contribution": -0.122
      },
      {
       "name": "entry_to_htf_pct",
       "label": "Entry depth inside HTF zone (%)",
       "value": 0.415,
-      "pct": 25.0,
-      "contribution": -0.066
+      "pct": 26.0,
+      "contribution": 0.005
      },
      {
       "name": "risk_atr_d",
       "label": "Stop distance in daily ATRs",
       "value": 0.624,
-      "pct": 75.0,
-      "contribution": 0.182
+      "pct": 76.0,
+      "contribution": 0.151
      },
      {
       "name": "stock_rs63",
       "label": "Stock vs NIFTY, last 63 days",
       "value": -0.067,
       "pct": 19.0,
-      "contribution": -0.03
+      "contribution": 0.053
      },
      {
       "name": "nifty_above_200dma",
       "label": "NIFTY above 200-day average",
       "value": 0.0,
       "pct": 0.0,
-      "contribution": 0.1
+      "contribution": 0.599
      },
      {
       "name": "log_htf_age_days",
       "label": "Age of HTF zone (log days)",
       "value": 3.871,
-      "pct": 76.0,
-      "contribution": 0.204
+      "pct": 83.0,
+      "contribution": 0.358
      },
      {
       "name": "type_demand",
       "label": "Demand zone (1) / supply (0)",
       "value": 0.0,
       "pct": 0.0,
-      "contribution": 0.314
+      "contribution": 0.116
      }
     ]
    }
@@ -1402,25 +1319,25 @@
  ],
  "ml_meta": {
   "feed": "scanner_feed_asof_2026-10-01.csv",
-  "history_rows": 328,
+  "history_rows": 205,
   "history_by_strategy": {
    "DIT15": {
-    "n": 152,
-    "win_rate": 0.4144736842105263,
-    "avg_r": 0.26769736842105263,
-    "unusual_cut": 3.2770718559764385
+    "n": 100,
+    "win_rate": 0.43,
+    "avg_r": 0.3220100000000001,
+    "unusual_cut": 3.1151879834514817
    },
    "MIT": {
-    "n": 74,
-    "win_rate": 0.36486486486486486,
-    "avg_r": 0.5077702702702703,
-    "unusual_cut": 3.864440761148715
+    "n": 35,
+    "win_rate": 0.45714285714285713,
+    "avg_r": 0.8437142857142857,
+    "unusual_cut": 3.893105929853476
    },
    "WIT": {
-    "n": 102,
-    "win_rate": 0.4019607843137255,
-    "avg_r": 0.2898921568627451,
-    "unusual_cut": 3.2730474534426004
+    "n": 70,
+    "win_rate": 0.45714285714285713,
+    "avg_r": 0.4171428571428572,
+    "unusual_cut": 3.628067216844068
    }
   },
   "k": 10,
@@ -1435,11 +1352,11 @@
    "log_htf_age_days",
    "type_demand"
   ],
-  "note": "Decision support only. Walk-forward tests (Experiments 3-7) found no reliable win-rate or P&L edge from ML; contributions describe the model, they do not predict outcomes."
+  "note": "Decision support only. Walk-forward tests (Experiments 3-6) found no reliable win-rate or P&L edge from ML; contributions describe the model, they do not predict outcomes."
  },
  "power": {
-  "test_trades": 248,
-  "base": 39.5,
-  "min_detectable": 13.4
+  "test_trades": 117,
+  "base": 41.0,
+  "min_detectable": 19.7
  }
 }

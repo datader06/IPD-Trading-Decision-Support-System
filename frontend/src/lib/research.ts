@@ -34,7 +34,7 @@ export interface Setup {
   insight: Insight | null
 }
 export interface DeskData {
-  baselines: Record<'v6' | 'v6_train' | 'v6_holdout' | 'oos' | 'v5', BaseSet>
+  baselines: Record<'v6' | 'v6_train' | 'v6_holdout' | 'v5', BaseSet>
   experiments: Experiment[]
   setups: Setup[]
   ml_meta: { history_rows: number; history_by_strategy: Record<string, { n: number; win_rate: number; avg_r: number }>; note: string }
