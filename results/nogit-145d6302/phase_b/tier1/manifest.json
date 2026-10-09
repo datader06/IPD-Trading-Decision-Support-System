@@ -1,0 +1,24 @@
+{
+  "features_file": "results\\nogit-145d6302\\phase_b\\tier1\\features.csv",
+  "features_sha256": "f0300790ba81611bdab7478676d6d27efe60efce7af26b260b86ad48066d5633",
+  "source_file": "results\\nogit-145d6302\\phase_a\\pit\\candidates.csv",
+  "source_sha256": "a11902073480111b3430d62935e3cb786723f7d9b44bb4893e357d52c44a98d9",
+  "registry_version": "tier1-v1",
+  "source_code_hash": "cd73bf8d",
+  "rows": 4552,
+  "status_counts": {
+    "WIN": 1229,
+    "LOSS": 2653,
+    "AMBIGUOUS": 669,
+    "CENSORED": 1,
+    "OPEN": 0,
+    "NOFILL": 0
+  },
+  "replay_check": {
+    "match": 4552
+  },
+  "outcome_equals_phase_a_row": 4552,
+  "label_ones": 1229,
+  "label_zeros": 2653,
+  "labeled_sha256": "55b768e3216e0453f0ff18a9ad010a3ab39733419a48574698447dc22d442744"
+}

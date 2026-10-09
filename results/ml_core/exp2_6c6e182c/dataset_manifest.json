@@ -1,0 +1,65 @@
+{
+ "feature_version": "tier2-agnostic-v1",
+ "feature_columns": [
+  "ltf_base_count",
+  "htf_strong_legout",
+  "ltf_strong_legout",
+  "overlap_frac",
+  "ltf_pos_in_htf",
+  "htf_zone_width_atr",
+  "risk_atr_d",
+  "trend_up",
+  "trend_down",
+  "trend_htf_up",
+  "trend_htf_down",
+  "type_demand",
+  "cost_in_r_rt0.20",
+  "nifty_above_200dma",
+  "stock_rs63",
+  "log_ltf_age_days",
+  "log_htf_age_days",
+  "strat_wit",
+  "strat_mit"
+ ],
+ "strategies": [
+  "DIT15",
+  "WIT",
+  "MIT"
+ ],
+ "sources": {
+  "DIT15": {
+   "path": "results\\nogit-145d6302\\phase_a\\pit\\candidates.csv",
+   "sha256": "a11902073480111b3430d62935e3cb786723f7d9b44bb4893e357d52c44a98d9",
+   "rows_in_file": 4661,
+   "pool_rows": 4575,
+   "rows_used": 4552
+  },
+  "WIT": {
+   "path": "results\\nogit-7a8ea6d9\\phase_a_mtf\\wit\\pit\\candidates.csv",
+   "sha256": "19f7b879ba24fafd983ef23240afb142322362f68d66fed04f922ae981bfe140",
+   "rows_in_file": 111,
+   "pool_rows": 111,
+   "rows_used": 111
+  },
+  "MIT": {
+   "path": "results\\nogit-ff52bbc2\\phase_a_mtf\\mit\\pit\\candidates.csv",
+   "sha256": "938a4b282510008c0bdc63928c33130050c73f4e4f3e62622ea28c3e71dc7535",
+   "rows_in_file": 36,
+   "pool_rows": 36,
+   "rows_used": 36
+  }
+ },
+ "rows": 4699,
+ "rows_by_strategy": {
+  "DIT15": 4552,
+  "WIT": 111,
+  "MIT": 36
+ },
+ "label_counts": {
+  "LOSS": 2734,
+  "WIN": 1287,
+  "AMBIGUOUS": 677,
+  "CENSORED": 1
+ },
+ "dataset_id": "6c6e182c"
+}

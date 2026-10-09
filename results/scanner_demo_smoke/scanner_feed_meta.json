@@ -1,0 +1,44 @@
+{
+ "label": "As of 2026-10-01",
+ "as_of_dates": [
+  "2026-10-01"
+ ],
+ "note": "DEMO scanner on cached data; not a backtest result; cached Kite frames, nothing fetched; not a frozen Phase A baseline",
+ "tickers": 100,
+ "strategies": [
+  "DIT15",
+  "WIT",
+  "MIT"
+ ],
+ "rows": 300,
+ "rows_by_strategy": {
+  "DIT15": 100,
+  "WIT": 100,
+  "MIT": 100
+ },
+ "status_by_strategy": {
+  "DIT15": {
+   "NO SETUP": 96,
+   "APPROACHING": 4
+  },
+  "MIT": {
+   "NO SETUP": 100
+  },
+  "WIT": {
+   "NO SETUP": 98,
+   "APPROACHING": 2
+  }
+ },
+ "status_total": {
+  "NO SETUP": 294,
+  "APPROACHING": 6
+ },
+ "problems": 6,
+ "definitions": {
+  "approach_max_atr": 3.0,
+  "approach_max_pct": 10.0,
+  "confirmed_max_age_days": 14
+ },
+ "seconds": 622.8,
+ "file": "results/scanner_demo_smoke/scanner_feed_asof_2026-10-01.csv"
+}

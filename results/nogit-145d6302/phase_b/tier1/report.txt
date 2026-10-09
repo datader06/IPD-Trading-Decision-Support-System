@@ -1,0 +1,33 @@
+PHASE B LABEL REPORT  features results\nogit-145d6302\phase_b\tier1\features.csv  source results\nogit-145d6302\phase_a\pit\candidates.csv  code_hash cd73bf8d
+rows 4552 (every Tier-1 row kept); tickers 489; model columns unchanged: True
+
+STATUS COUNTS (label_status)
+  WIN         1229   label = 1
+  LOSS        2653   label = 0
+  AMBIGUOUS    669   label = (none)
+  CENSORED       1   label = (none)
+  OPEN           0   label = (none)
+  NOFILL         0   label = (none)
+  total 4552; training labels 3882 (WIN 1229, LOSS 2653)
+
+LABEL BALANCE (resolved): win rate 31.66%
+  2021: resolved  493 wins  163 win%  33.1
+  2022: resolved  642 wins  187 win%  29.1
+  2023: resolved  692 wins  231 win%  33.4
+  2024: resolved  696 wins  224 win%  32.2
+  2025: resolved  734 wins  231 win%  31.5
+  2026: resolved  625 wins  193 win%  30.9
+  B0 rows: 316 (resolved 256); relaxed-pool rows: 4552
+
+AMBIGUOUS reasons: {'target in fill bar': 300, 'stop+target in fill bar': 177, 'gap-fill opens beyond the stop': 172, 'INTRADAY_DATA_GAP': 15, 'MINUTE_NOT_CACHED': 4, 'stop+target in same bar': 1}
+
+COMPARISON WITH PHASE A (pit_refetch)
+  status     Phase A pool  excluded at features  dataset  pool - excluded
+  WIN                1237                     8     1229             1229
+  LOSS               2666                    13     2653             2653
+  AMBIGUOUS           671                     2      669              669
+  CENSORED              1                     0        1                1
+  OPEN                  0                     0        0                0
+  NOFILL                0                     0        0                0
+  outcome equals the traced Phase A row: 4552 of 4552
+  fresh replay (unchanged src/replay.py, same call path) vs stored Phase A fields: {'match': 4552}

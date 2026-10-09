@@ -1,0 +1,40 @@
+PHASE B WALK-FORWARD FOLDS  labeled results\nogit-145d6302\phase_b\tier1\labeled.csv  rows 4552
+expanding window from 2021-01-01; validation = last 6 months of the training window; embargo 5 trading days (NIFTY calendar); purge = outcome (exit_time) at or after the boundary; holdout from 2026-01-01 (781 rows, never used)
+
+FOLD DEFINITIONS
+  2023H1: fit 2021-01-01 .. 2022-07-01 | validation 2022-07-01 .. 2023-01-01 | test 2023-01-01 .. 2023-07-01 | embargo from 2022-12-26 (validation boundary: 2022-06-24)
+  2023H2: fit 2021-01-01 .. 2023-01-01 | validation 2023-01-01 .. 2023-07-01 | test 2023-07-01 .. 2024-01-01 | embargo from 2023-06-23 (validation boundary: 2022-12-26)
+  2024H1: fit 2021-01-01 .. 2023-07-01 | validation 2023-07-01 .. 2024-01-01 | test 2024-01-01 .. 2024-07-01 | embargo from 2023-12-22 (validation boundary: 2023-06-23)
+  2024H2: fit 2021-01-01 .. 2024-01-01 | validation 2024-01-01 .. 2024-07-01 | test 2024-07-01 .. 2025-01-01 | embargo from 2024-06-24 (validation boundary: 2023-12-22)
+  2025H1: fit 2021-01-01 .. 2024-07-01 | validation 2024-07-01 .. 2025-01-01 | test 2025-01-01 .. 2025-07-01 | embargo from 2024-12-24 (validation boundary: 2024-06-24)
+  2025H2: fit 2021-01-01 .. 2025-01-01 | validation 2025-01-01 .. 2025-07-01 | test 2025-07-01 .. 2026-01-01 | embargo from 2025-06-24 (validation boundary: 2024-12-24)
+
+ROW COUNTS (resolved = WIN + LOSS; fit/validation/pool are resolved rows only)
+  fold       fit      (W/L)  valid     (W/L)  pool      (W/L)  test rows resolved     (W/L)  AMB  CENS
+  2023H1     808  (261/547)    308  (84/224)  1123  (346/777)        334      300 (100/200)   34     0
+  2023H2    1123  (346/777)    275  (89/186)  1410  (439/971)        466      392 (131/261)   74     0
+  2024H1    1410  (439/971)    346 (117/229)  1781 (567/1214)        456      378 (121/257)   78     0
+  2024H2    1781 (567/1214)    372 (119/253)  2199 (700/1499)        371      318 (103/215)   53     0
+  2025H1    2199 (700/1499)    303  (95/208)  2508 (797/1711)        456      363 (108/255)   93     0
+  2025H2    2508 (797/1711)    361 (108/253)  2884 (913/1971)        426      371 (123/248)   55     0
+
+PURGE / EMBARGO / SIBLING COUNTS (resolved rows removed at each boundary)
+  fold     test: embargo  purged  sibling  valid: embargo  purged  sibling  unresolved excl.  test rows exiting in 2026
+  2023H1              12       0        0               7       0        0               127                          0
+  2023H2              25       0        0              12       0        0               161                          0
+  2024H1              46       0        0              25       0        0               235                          0
+  2024H2               6       0        0              46       0        0               313                          0
+  2025H1              15       0        0               6       0        0               366                          0
+  2025H2               2       0        0              15       0        0               459                          0
+
+MINIMUM SAMPLE RULES (train >= 300 resolved, wins >= 180 = 10 x 18 features, test >= 100 resolved)
+  2023H1: pool resolved OK, pool wins OK | fit resolved OK, fit wins OK | test resolved OK
+  2023H2: pool resolved OK, pool wins OK | fit resolved OK, fit wins OK | test resolved OK
+  2024H1: pool resolved OK, pool wins OK | fit resolved OK, fit wins OK | test resolved OK
+  2024H2: pool resolved OK, pool wins OK | fit resolved OK, fit wins OK | test resolved OK
+  2025H1: pool resolved OK, pool wins OK | fit resolved OK, fit wins OK | test resolved OK
+  2025H2: pool resolved OK, pool wins OK | fit resolved OK, fit wins OK | test resolved OK
+  folds failing a minimum rule: none
+
+LEAKAGE CHECKS: 93 run, 0 failed; deterministic rebuild: True
+  checked per fold: roles disjoint; only WIN/LOSS rows fitted; max training entry before the embargo start; max training outcome before the test start (purge); embargo spans exactly 5 trading days; purged rows really cross the boundary; test rows inside the window; validation = last 6 months; fit ends before the validation boundary with embargo and purge; no HTF-zone group on both sides; expanding pools; and across folds: chronological, windows end by the holdout start, no holdout row in any role.

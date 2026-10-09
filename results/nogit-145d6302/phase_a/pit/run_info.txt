@@ -1,0 +1,4 @@
+mode=Mode(pit_trend=True, session_2h=True, ath_full=True, ca_reset=True, name='pit', formation_at_close=False)
+tickers=503
+errors=[]
+code_hash=e5e09db7

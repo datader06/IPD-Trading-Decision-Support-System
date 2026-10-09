@@ -1,0 +1,13 @@
+{
+  "run_id": "nogit-ff52bbc2",
+  "code_hash": "ce036150",
+  "old": {
+    "wit": "results/50f701a/trades_wit_kite_2024_v2_cap5_lw_from2021_final.csv",
+    "mit": "results/132d5d8/trades_mit_kite_2024_v2_cap5_lw_from2021_final.csv"
+  },
+  "modes": {
+    "legacy": "Mode(pit_trend=False, session_2h=False, ath_full=False, ca_reset=False, fixed_start=False, name='legacy')",
+    "pit_trend": "Mode(pit_trend=True, session_2h=False, ath_full=False, ca_reset=False, fixed_start=False, name='pit_trend')",
+    "pit": "Mode(pit_trend=True, session_2h=True, ath_full=True, ca_reset=True, fixed_start=True, name='pit')"
+  }
+}

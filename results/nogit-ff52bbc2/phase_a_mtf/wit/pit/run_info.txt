@@ -1,0 +1,6 @@
+mode=Mode(pit_trend=True, session_2h=True, ath_full=True, ca_reset=True, fixed_start=True, name='pit')
+combo=wit
+tickers=503
+errors=[]
+code_hash=ce036150
+run_id=nogit-ff52bbc2

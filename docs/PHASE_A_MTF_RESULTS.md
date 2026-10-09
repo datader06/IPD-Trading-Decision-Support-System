@@ -2,7 +2,9 @@
 
 Same methodology as DIT15 (docs/PHASE_A_PLAN.md, PHASE_A_RESULTS.md), strict B0 lists only (no relaxed pool for WIT / MIT).
 DIT15 baseline files, `src/candidates.py`, `trend_pit.py`, `bars.py`, `replay.py` and all legacy code are unchanged.
-Full tables: `results/nogit-8b4a8735/phase_a_mtf/hardening_report.md`. Rebuild per combo and mode:
+Frozen WIT dataset: `results/nogit-7a8ea6d9/phase_a_mtf/wit/pit/` (run id `nogit-7a8ea6d9`, `code_hash=943d8a47`), verified on 9 Oct 2026
+(see `docs/PHASE_A_FREEZE.md`; supersedes the earlier `nogit-8b4a8735` / `ce036150` reference). Full before/after tables (WIT and MIT,
+generated before the WIT minute fetch): `results/nogit-ff52bbc2/phase_a_mtf/hardening_report.md`. Rebuild per combo and mode:
 `python scripts/run_phase_a_mtf.py generate --combo=wit|mit --mode=legacy|pit_trend|pit_2h|pit`, then `report`.
 Run id = hash of the Phase A code plus the runner (no git call).
 
@@ -51,7 +53,7 @@ Cost scenarios (expectancy R, hardened; round trip 0.10 / 0.20 / 0.30%): WIT +0.
 WIT is about break-even at 0.20% and negative at 0.30%; MIT stays positive (n = 34).
 
 ## Ambiguity
-- WIT hardened: 6 AMBIGUOUS: target in fill bar 5, stop+target in fill bar 1. A fetch of the 13 `MINUTE_NOT_CACHED` cases (13 read-only requests, 8 Oct 2026) resolved 10 of them (5 WIN, 5 LOSS) and left 3 as genuine ties at 1-minute resolution (target in the fill minute). No previously resolved trade changed. The pre-fetch WIT results are kept in `phase_a_mtf/wit_prefetch/`.
+- WIT hardened: 6 AMBIGUOUS: target in fill bar 5, stop+target in fill bar 1. A fetch of the 13 `MINUTE_NOT_CACHED` cases (13 read-only requests, 8 Oct 2026) resolved 10 of them (5 WIN, 5 LOSS) and left 3 as genuine ties at 1-minute resolution (target in the fill minute). No previously resolved trade changed. The pre-fetch WIT results are kept in `results/nogit-ff52bbc2/phase_a_mtf/wit/pit/`.
 - MIT hardened: 2 AMBIGUOUS, both "gap-fill opens beyond the stop" (kept ambiguous by D4); 0 minute requests needed.
 - No OPEN, CENSORED or NOFILL trades in either.
 - Corporate-action exclusions: 0 trades in both.

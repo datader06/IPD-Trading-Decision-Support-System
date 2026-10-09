@@ -1,0 +1,58 @@
+{
+  "labeled_file": "results\\nogit-145d6302\\phase_b\\tier1\\labeled.csv",
+  "labeled_sha256": "55b768e3216e0453f0ff18a9ad010a3ab39733419a48574698447dc22d442744",
+  "registry_version": "tier1-v1",
+  "config": {
+    "windows": [
+      [
+        "2023H1",
+        "2023-01-01",
+        "2023-07-01"
+      ],
+      [
+        "2023H2",
+        "2023-07-01",
+        "2024-01-01"
+      ],
+      [
+        "2024H1",
+        "2024-01-01",
+        "2024-07-01"
+      ],
+      [
+        "2024H2",
+        "2024-07-01",
+        "2025-01-01"
+      ],
+      [
+        "2025H1",
+        "2025-01-01",
+        "2025-07-01"
+      ],
+      [
+        "2025H2",
+        "2025-07-01",
+        "2026-01-01"
+      ]
+    ],
+    "dev_start": "2021-01-01",
+    "holdout_start": "2026-01-01",
+    "val_months": 6,
+    "embargo_days": 5,
+    "n_features": 18,
+    "min_train_resolved": 300,
+    "min_wins_per_feature": 10,
+    "min_test_resolved": 100
+  },
+  "rows_total": 4552,
+  "rows_before_dev_start": 0,
+  "holdout_rows": 781,
+  "holdout_first_entry": "2026-01-01 11:15:00",
+  "holdout_last_entry": "2026-10-01 14:00:00",
+  "checks_total": 93,
+  "checks_failed": [],
+  "deterministic": true,
+  "folds_sha256": "338469d83e95a2010c678da8c98300e3bf87aa6a1b9c7dbf57f36f7b60b40b3e",
+  "assignments_sha256": "2ac965ac1bd55259270532bb0fbcbfd0f9d1e95619eca8a028546b0264d482b7",
+  "model_fitting_labels": "WIN=1, LOSS=0 only (is_training_label)"
+}

@@ -1,0 +1,127 @@
+{
+ "experiment": "Experiment 1",
+ "preregistration": "docs/EXPERIMENT_1_PREREGISTRATION.md",
+ "preregistration_sha256": "09acf37db3112754dd6ac9b83f11ee38bb42c7face610c7d0f16e05dd4763154",
+ "inputs": {
+  "results/nogit-145d6302/phase_a/pit/candidates.csv": {
+   "sha256": "a11902073480111b3430d62935e3cb786723f7d9b44bb4893e357d52c44a98d9",
+   "expected": "a11902073480111b3430d62935e3cb786723f7d9b44bb4893e357d52c44a98d9"
+  },
+  "results/nogit-145d6302/phase_b/tier1/features.csv": {
+   "sha256": "f0300790ba81611bdab7478676d6d27efe60efce7af26b260b86ad48066d5633",
+   "expected": "f0300790ba81611bdab7478676d6d27efe60efce7af26b260b86ad48066d5633"
+  },
+  "results/nogit-145d6302/phase_b/tier1/labeled.csv": {
+   "sha256": "55b768e3216e0453f0ff18a9ad010a3ab39733419a48574698447dc22d442744",
+   "expected": "55b768e3216e0453f0ff18a9ad010a3ab39733419a48574698447dc22d442744"
+  },
+  "results/nogit-145d6302/phase_b/tier1/folds/fold_assignments.csv": {
+   "sha256": "2ac965ac1bd55259270532bb0fbcbfd0f9d1e95619eca8a028546b0264d482b7",
+   "expected": "2ac965ac1bd55259270532bb0fbcbfd0f9d1e95619eca8a028546b0264d482b7"
+  },
+  "results/nogit-145d6302/phase_b/tier1/folds/folds.csv": {
+   "sha256": "338469d83e95a2010c678da8c98300e3bf87aa6a1b9c7dbf57f36f7b60b40b3e",
+   "expected": "338469d83e95a2010c678da8c98300e3bf87aa6a1b9c7dbf57f36f7b60b40b3e"
+  }
+ },
+ "phase_a_measured_code_hash": "e5e09db7",
+ "registry_source_code_hash": "cd73bf8d",
+ "hash_note": "registry SOURCE_CODE_HASH (cd73bf8d) differs from the measured Phase A hash (e5e09db7); documented, not changed",
+ "versions": {
+  "scikit_learn": "1.4.0",
+  "xgboost": "2.0.3",
+  "numpy": "1.26.4",
+  "pandas": "2.2.0"
+ },
+ "scope": {
+  "labeled_rows": 4552,
+  "holdout_rows_excluded": 781,
+  "primary_rows_used": 3771,
+  "strict_flagged_rows": 240,
+  "strict_oof_rows": 2386,
+  "primary_oof_rows": 2509
+ },
+ "seed": 42,
+ "n_draws": 1000,
+ "champion": {
+  "primary": null,
+  "strict": "hist_gb"
+ },
+ "determinism": {
+  "oof_predictions_and_takes": true,
+  "metrics_selections_champion": true,
+  "b2_draws": true
+ },
+ "strict_subset_checks": {
+  "flagged_total": 240,
+  "flagged_in_development_data": 196,
+  "none_left_in_strict_oof": true,
+  "same_folds": true,
+  "oof_rows_primary": 2509,
+  "oof_rows_strict": 2386
+ },
+ "shuffled_label_check": {
+  "logreg": {
+   "roc_auc": 0.4752196740216182,
+   "band": [
+    0.4737335628683398,
+    0.5262664371316602
+   ],
+   "se": 0.01340124343452051,
+   "n_pos": 686,
+   "n_neg": 1436,
+   "passed": true
+  },
+  "random_forest": {
+   "roc_auc": 0.49014613804136853,
+   "band": [
+    0.4737335628683398,
+    0.5262664371316602
+   ],
+   "se": 0.01340124343452051,
+   "n_pos": 686,
+   "n_neg": 1436,
+   "passed": true
+  },
+  "hist_gb": {
+   "roc_auc": 0.4948705506874457,
+   "band": [
+    0.4737335628683398,
+    0.5262664371316602
+   ],
+   "se": 0.01340124343452051,
+   "n_pos": 686,
+   "n_neg": 1436,
+   "passed": true
+  },
+  "xgboost": {
+   "roc_auc": 0.4991041482251476,
+   "band": [
+    0.4737335628683398,
+    0.5262664371316602
+   ],
+   "se": 0.01340124343452051,
+   "n_pos": 686,
+   "n_neg": 1436,
+   "passed": true
+  }
+ },
+ "seconds": 66.9,
+ "output_sha256": {
+  "results/nogit-145d6302/phase_b/experiment_1/determinism.json": "8350361a62572fef7591f572b0d2e170b0ec694df7229f00c78238917b278137",
+  "results/nogit-145d6302/phase_b/experiment_1/primary/b2_draws.npz": "7b0c0a26b84df28a526e3224216b8271281f8a5952a92eda2e035eeb1ce01e0d",
+  "results/nogit-145d6302/phase_b/experiment_1/primary/experiment_log.jsonl": "30bde13fda2bead6d4c632e1afe5fac41b5a170bd137a985893bc0b28479973e",
+  "results/nogit-145d6302/phase_b/experiment_1/primary/fold_selections.csv": "8dd8107b34f03a64adcf3a05626848b638dc4fb1b2710c865a15c997cb017097",
+  "results/nogit-145d6302/phase_b/experiment_1/primary/oof_predictions.csv": "27f39136339f50c800fff100fe2aa4c047826520ad06f21827c7a01cab6c6c88",
+  "results/nogit-145d6302/phase_b/experiment_1/primary/pooled_metrics.csv": "a7d6d4de8ee68a0de0347a4cca6def1dc19760a0d7214ee09ec9a9362d32b992",
+  "results/nogit-145d6302/phase_b/experiment_1/primary/results.json": "61e680ec5cdba1e6c2e5ae3312ec900d33135daedc8ee873be289b6fc524ea20",
+  "results/nogit-145d6302/phase_b/experiment_1/shuffled_label_check.json": "f3b3575906a0cd84171e7205bfebd62635a2f35404b5f4fcdf8f0c718a878e55",
+  "results/nogit-145d6302/phase_b/experiment_1/strict_htf/b2_draws.npz": "cae54c5e38a32c3bb2e7b655d2c12afc7919d566c6a700343bbe557dbaab594a",
+  "results/nogit-145d6302/phase_b/experiment_1/strict_htf/experiment_log.jsonl": "1849bcee07fe27d6adfc10ec1b2b12cfb7f4a60a247dcc222115b6a9e2bbe998",
+  "results/nogit-145d6302/phase_b/experiment_1/strict_htf/fold_selections.csv": "8dc60408d2eaad6dc2a32d5f94459f6a2101f90b883a50f87d26ea1f5b6f6a17",
+  "results/nogit-145d6302/phase_b/experiment_1/strict_htf/oof_predictions.csv": "7a9f2e9f7339af6f407ecec421164fbe9a1a550a618b4ca4e689c5648a0847f4",
+  "results/nogit-145d6302/phase_b/experiment_1/strict_htf/pooled_metrics.csv": "eb7f66ae18cec34ec93661a6706634e82ba08c0e5592fe3e344a67840a5ca789",
+  "results/nogit-145d6302/phase_b/experiment_1/strict_htf/results.json": "d11d49a33f19f7f8f9805405fcb99e71bc3a8f7fa24dab52a5f143df85265cb7",
+  "results/nogit-145d6302/phase_b/experiment_1/strict_subset_rows.csv": "f139cf47a72dfceed43dea487aabecc60146e7c0f55db2c844c4e98ba7b26eee"
+ }
+}

@@ -1,0 +1,13 @@
+run,label,family,n_resolved,expectancy_rt020,random_filter_percentile,boot_ci_lo_vs_B1,min_100_takes,expectancy_positive,above_95th_random,boot_excludes_zero,edge_established
+exp1_primary,"Experiment 1 primary (DIT15, Tier-1 features)",logreg,20,-0.1119496862736811,0.79,-0.4082094841143055,False,False,False,False,False
+exp1_primary,"Experiment 1 primary (DIT15, Tier-1 features)",random_forest,0,,,,False,False,False,False,False
+exp1_primary,"Experiment 1 primary (DIT15, Tier-1 features)",hist_gb,92,-0.4787216190431212,0.297,-0.3398843055836995,False,False,False,False,False
+exp1_primary,"Experiment 1 primary (DIT15, Tier-1 features)",xgboost,10,-0.2954531140108882,0.645,-0.8053233254532313,False,False,False,False,False
+exp1_strict_htf,Experiment 1 strict-HTF (DIT15 sensitivity),logreg,19,-0.2179829575428344,0.731,-0.3664408623276175,False,False,False,False,False
+exp1_strict_htf,Experiment 1 strict-HTF (DIT15 sensitivity),random_forest,0,,,,False,False,False,False,False
+exp1_strict_htf,Experiment 1 strict-HTF (DIT15 sensitivity),hist_gb,101,-0.3752027609386296,0.57,-0.1755073191899423,True,False,False,False,False
+exp1_strict_htf,Experiment 1 strict-HTF (DIT15 sensitivity),xgboost,7,-0.343127617005996,0.599,-0.8197045324394697,False,False,False,False,False
+exp2_6c6e182c,"exp2_6c6e182c (pooled logreg, random_forest, hist_gb, xgboost; features tier2-agnostic-v1)",logreg,62,-0.0216681289583213,0.971,-0.0018232738084204,False,False,True,False,False
+exp2_6c6e182c,"exp2_6c6e182c (pooled logreg, random_forest, hist_gb, xgboost; features tier2-agnostic-v1)",random_forest,16,0.0554565834769732,0.867,-0.4180601474449529,False,True,False,False,False
+exp2_6c6e182c,"exp2_6c6e182c (pooled logreg, random_forest, hist_gb, xgboost; features tier2-agnostic-v1)",hist_gb,142,-0.1736240267315503,0.944,-0.0283255619099763,True,False,False,False,False
+exp2_6c6e182c,"exp2_6c6e182c (pooled logreg, random_forest, hist_gb, xgboost; features tier2-agnostic-v1)",xgboost,11,0.2837655896339853,0.938,-0.2896591225668866,False,True,False,False,False
