@@ -1,0 +1,149 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/geist/wght.css';
+@import '@fontsource-variable/geist-mono/wght.css';
+@import '@fontsource-variable/bricolage-grotesque/wdth.css';
+
+/* Design tokens: near-black base, one accent (emerald). Gain and loss are the only extra semantic colors.
+   Shape rule: cards rounded-2xl, controls rounded-lg, badges full pill. Surfaces are frosted glass over a faint ambient glow. */
+@theme {
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Bricolage Grotesque Variable', 'Geist Variable', ui-sans-serif, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, SFMono-Regular, monospace;
+
+  --color-bg: #040508;
+  --color-card: #0a0c11;
+  --color-muted: #151922;
+  --color-line: #1b202a;
+  --color-fg: #f3f5f8;
+  --color-dim: #8a93a3;
+  --color-accent: #34d399;
+  --color-on-accent: #03140d;
+  --color-loss: #fb7185;
+}
+
+html {
+  background: var(--color-bg);
+  color-scheme: dark;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-variation-settings: 'wdth' 92;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--color-accent) 35%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+.glow-text {
+  text-shadow: 0 0 40px color-mix(in srgb, var(--color-accent) 28%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+button:not(:disabled),
+a,
+[role='tab'],
+[role='radio'] {
+  cursor: pointer;
+}
+
+
+/* Frosted glass surface. Falls back to a solid card when blur is unsupported or transparency is reduced. */
+.glass {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018));
+  border: 1px solid rgba(255, 255, 255, 0.085);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.07),
+    0 24px 56px -28px rgba(0, 0, 0, 0.85);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(150%);
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass {
+    background: var(--color-card);
+  }
+}
+@media (prefers-reduced-transparency: reduce) {
+  .glass {
+    background: var(--color-card);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+}
+
+/* Soft emerald / cool-teal glow fixed behind the page so the glass has something to refract. */
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(60rem 36rem at 12% -8%, rgba(52, 211, 153, 0.13), transparent 60%),
+    radial-gradient(48rem 30rem at 92% 12%, rgba(56, 189, 248, 0.07), transparent 60%),
+    radial-gradient(52rem 32rem at 55% 112%, rgba(52, 211, 153, 0.07), transparent 60%);
+}
+
+.text-shine {
+  background: linear-gradient(100deg, #f3f5f8 20%, #7ef0c3 45%, #f3f5f8 70%);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shine 6s ease-in-out infinite;
+}
+@keyframes shine {
+  0%,
+  100% {
+    background-position: 100% 0;
+  }
+  50% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}

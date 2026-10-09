@@ -27,3 +27,7 @@ legacy/handoff/handoff/data/
 legacy/handoff/handoff/old_invalid/
 legacy/handoff/handoff/corrections/
 legacy/handoff/handoff/golden/annotated_charts/
+.DS_Store
+
+# API virtualenv
+api/.venv/
