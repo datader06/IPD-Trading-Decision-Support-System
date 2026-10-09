@@ -5,6 +5,7 @@ import { SmoothScroll } from './lib/smooth'
 // Each page is its own chunk: the chart library only loads on the desk, the WebGL background only on the overview.
 const Landing = lazy(() => import('./pages/Landing'))
 const Desk = lazy(() => import('./pages/Desk'))
+const Research = lazy(() => import('./pages/Research'))
 const NotFound = lazy(() => import('./pages/NotFound'))
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Landing />} />
             <Route path="/desk" element={<Desk />} />
+            <Route path="/research" element={<Research />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Suspense>

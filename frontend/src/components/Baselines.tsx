@@ -1,11 +1,28 @@
-import { useState } from 'react'
-import { BASELINES } from '../lib/baselines'
+import { useEffect, useState } from 'react'
+import { BASELINES, type BaselineSet } from '../lib/baselines'
+import { COMBO_LABEL, loadDesk } from '../lib/research'
 import { inr } from '../lib/sizing'
 import Segmented from './Segmented'
 
 export default function Baselines() {
+  const [sets, setSets] = useState<BaselineSet[]>(BASELINES)
   const [id, setId] = useState(BASELINES[0].id)
-  const set = BASELINES.find((b) => b.id === id) ?? BASELINES[0]
+  useEffect(() => {
+    loadDesk().then((d) => {
+      if (!d) return
+      const pick = [['v6', 'v6 final'], ['v6_holdout', '2026'], ['oos', '2015–20'], ['v5', 'v5']] as const
+      const next: BaselineSet[] = pick.map(([k, short]) => ({
+        id: k,
+        title: short,
+        window: d.baselines[k].window,
+        source: k === 'oos' ? 'final engine re-run on 2015–2020 bars, rules frozen' : 'STATUS.md sections 16–19',
+        rows: d.baselines[k].rows.map((r) => ({ combo: r.combo, label: COMBO_LABEL[r.combo], n: r.n, winRate: r.win_rate ?? 0, ci: [r.ci[0] ?? 0, r.ci[1] ?? 0] as [number, number], avgR: r.avg_r ?? 0, pnl: r.pnl })),
+      }))
+      setSets(next)
+      setId('v6')
+    })
+  }, [])
+  const set = sets.find((b) => b.id === id) ?? sets[0]
 
   return (
     <section className="rounded-2xl glass p-5" aria-labelledby="base-h">
@@ -17,7 +34,7 @@ export default function Baselines() {
         className="mt-3 [&>button]:flex-1"
         value={id}
         onChange={setId}
-        options={BASELINES.map((b) => ({ id: b.id, label: b.title }))}
+        options={sets.map((b) => ({ id: b.id, label: b.title }))}
       />
       <p className="mt-3 text-xs text-dim">
         {set.window} · {set.source}
@@ -64,7 +81,7 @@ export default function Baselines() {
         </table>
       </div>
       <p className="mt-3 text-xs leading-relaxed text-dim">
-        Gross of costs. Win-rate brackets are 95% bootstrap intervals. These are candidate baselines, not confirmed: the trade review is still in progress.
+        Gross of costs, Rs 1,000 risk per trade. Brackets are 95% intervals. v6 cutoffs were chosen on 2021+ trades; the 2015–2020 set was never seen when choosing them, so it is the honest out-of-sample check.
       </p>
     </section>
   )

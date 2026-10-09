@@ -19,6 +19,9 @@ export default function Nav() {
           <NavLink to="/desk" className={link}>
             Desk
           </NavLink>
+          <NavLink to="/research" className={link}>
+            Research
+          </NavLink>
         </div>
       </nav>
     </header>

@@ -3,12 +3,15 @@ import { MagnifyingGlass, WarningCircle } from '@phosphor-icons/react'
 import gsap from 'gsap'
 import { useCallback, useEffect, useMemo, useRef, useState, type KeyboardEvent } from 'react'
 import Baselines from '../components/Baselines'
-import CandleChart, { type Level } from '../components/CandleChart'
+import LiveSetups from '../components/LiveSetups'
+import MLInsights from '../components/MLInsights'
+import CandleChart, { type Level, type Zone } from '../components/CandleChart'
 import Nav from '../components/Nav'
 import Segmented from '../components/Segmented'
 import TradeCalculator from '../components/TradeCalculator'
 import TradesTable from '../components/TradesTable'
 import { FALLBACK_SYMBOLS, SymbolError, fetchCandles, searchSymbols, type CandleResult, type Interval, type SymbolHit } from '../lib/api'
+import { toChartTime, type Setup } from '../lib/research'
 import { parseNum, type ZoneType } from '../lib/sizing'
 
 const INTERVALS: { id: Interval; label: string }[] = [
@@ -31,6 +34,8 @@ export default function Desk() {
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
   const needsLevels = useRef(true)
+  const pinned = useRef(false)
+  const [setup, setSetup] = useState<Setup | null>(null)
   const [type, setType] = useState<ZoneType>('demand')
   const [entry, setEntry] = useState('')
   const [stop, setStop] = useState('')
@@ -67,7 +72,8 @@ export default function Desk() {
 
   // A different symbol means different prices: levels restart from its last price once. Changing the interval keeps them.
   useEffect(() => {
-    needsLevels.current = true
+    needsLevels.current = !pinned.current
+    pinned.current = false
   }, [symbol])
 
   // Symbol suggestions (debounced).
@@ -122,6 +128,25 @@ export default function Desk() {
       { price: s, title: 'Stop', color: '#fb7185' },
     ]
   }, [entry, stop, type])
+
+  const pickSetup = (s: Setup) => {
+    setSetup(s)
+    pinned.current = s.ticker !== symbol
+    needsLevels.current = false
+    setSymbol(s.ticker)
+    setQuery(s.ticker)
+    setType(s.type)
+    setEntry(round2(s.entry))
+    setStop(round2(s.stop))
+  }
+
+  const zones: Zone[] = useMemo(() => {
+    if (!setup || setup.ticker !== symbol) return []
+    return [
+      { label: 'HTF zone', top: Math.max(setup.htf_proximal, setup.htf_distal), bottom: Math.min(setup.htf_proximal, setup.htf_distal), from: toChartTime(setup.htf_formed_at), kind: setup.type, strong: false },
+      { label: 'LTF zone', top: Math.max(setup.ltf_proximal, setup.ltf_distal), bottom: Math.min(setup.ltf_proximal, setup.ltf_distal), from: toChartTime(setup.ltf_formed_at), kind: setup.type, strong: true },
+    ]
+  }, [setup, symbol])
 
   const choose = (s: string) => {
     setSymbol(s)
@@ -241,12 +266,16 @@ export default function Desk() {
                   <p className="max-w-[46ch] text-sm leading-relaxed text-dim">{error}</p>
                 </div>
               ) : result ? (
-                <CandleChart candles={result.candles} levels={levels} />
+                <CandleChart candles={result.candles} levels={levels} zones={zones} />
               ) : (
                 <div className="flex h-full items-center justify-center text-sm text-dim">Loading…</div>
               )}
             </div>
           </section>
+
+          <div className="panel">
+            <LiveSetups selected={setup} onPick={pickSetup} />
+          </div>
 
           <div className="panel">
             <TradesTable />
@@ -268,6 +297,9 @@ export default function Desk() {
               onStop={setStop}
               onReset={() => resetLevels(type)}
             />
+          </div>
+          <div className="panel">
+            <MLInsights setup={setup} />
           </div>
           <div className="panel">
             <Baselines />
