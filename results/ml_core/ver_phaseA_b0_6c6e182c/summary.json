@@ -1,0 +1,60 @@
+{
+ "tag": "ver_phaseA_b0",
+ "manifest": {
+  "source": "results\\ml_core\\exp2_6c6e182c",
+  "sha256": "6c6e182c",
+  "rows_used": 336,
+  "rows_by_strategy": {
+   "DIT15": 210,
+   "WIT": 95,
+   "MIT": 31
+  },
+  "feature_version": "tier2-agnostic-v1"
+ },
+ "test_years": [
+  2023,
+  2024,
+  2025
+ ],
+ "models": [
+  "logreg",
+  "random_forest",
+  "hist_gb",
+  "xgboost"
+ ],
+ "n_oof": 207,
+ "base_win_rate": 0.357487922705314,
+ "holdout_rows_not_used": 794,
+ "any_improvement_established": false,
+ "power": {
+  "rows": [
+   {
+    "lift_pts": 3.0,
+    "selected_trades_needed": 2426
+   },
+   {
+    "lift_pts": 5.0,
+    "selected_trades_needed": 874
+   },
+   {
+    "lift_pts": 10.0,
+    "selected_trades_needed": 219
+   },
+   {
+    "lift_pts": 15.0,
+    "selected_trades_needed": 98
+   }
+  ],
+  "min_detectable_lift_pts": 14.488771567259798,
+  "n_selected_now": 104,
+  "alpha": 0.0125,
+  "power": 0.8,
+  "base_win_rate": 0.357487922705314
+ },
+ "n_train_by_year": {
+  "2023": 125,
+  "2024": 192,
+  "2025": 273
+ },
+ "seconds": 11.3
+}

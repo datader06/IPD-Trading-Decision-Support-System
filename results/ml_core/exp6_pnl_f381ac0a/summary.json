@@ -1,0 +1,20 @@
+{
+ "tag": "exp6_pnl",
+ "pool": "v6",
+ "rows_dev": 168,
+ "n_test": 117,
+ "test_years": [
+  2023,
+  2024,
+  2025
+ ],
+ "n_train_by_year": {
+  "2023": 50,
+  "2024": 89,
+  "2025": 134
+ },
+ "any_improvement": false,
+ "holdout_rows_not_used": 37,
+ "source_sha256": "f381ac0addf2e24e4a1eb27be9c41fae9d3f370af3e555c2cc9608dcf7bb14b0",
+ "seconds": 120.8
+}

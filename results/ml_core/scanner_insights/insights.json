@@ -1,0 +1,2159 @@
+{
+"meta": {
+"feed": "scanner_feed_asof_2026-10-01.csv",
+"history_rows": 205,
+"history_by_strategy": {
+"DIT15": {
+"n": 100,
+"win_rate": 0.43,
+"avg_r": 0.3220100000000001,
+"unusual_cut": 3.1151879834514817
+},
+"MIT": {
+"n": 35,
+"win_rate": 0.45714285714285713,
+"avg_r": 0.8437142857142857,
+"unusual_cut": 3.893105929853476
+},
+"WIT": {
+"n": 70,
+"win_rate": 0.45714285714285713,
+"avg_r": 0.4171428571428572,
+"unusual_cut": 3.628067216844068
+}
+},
+"k": 10,
+"k_anomaly": 5,
+"features": [
+"risk_pct",
+"htf_width_pct",
+"entry_to_htf_pct",
+"risk_atr_d",
+"stock_rs63",
+"nifty_above_200dma",
+"log_htf_age_days",
+"type_demand"
+],
+"note": "Decision support only. Walk-forward tests (Experiments 3-6) found no reliable win-rate or P&L edge from ML; contributions describe the model, they do not predict outcomes."
+},
+"setups": {
+"CANBK.NS|DIT15|supply|124.8600": {
+"available": true,
+"similar": [
+{
+"ticker": "TATACHEM.NS",
+"entry_time": "2022-03-03 09:15",
+"type": "supply",
+"win": 0,
+"r": -0.173,
+"era": "train",
+"distance": 1.38
+},
+{
+"ticker": "COCHINSHIP.NS",
+"entry_time": "2022-03-11 09:15",
+"type": "supply",
+"win": 0,
+"r": -0.83,
+"era": "train",
+"distance": 1.52
+},
+{
+"ticker": "NTPC.NS",
+"entry_time": "2025-01-15 09:30",
+"type": "supply",
+"win": 0,
+"r": -1.0,
+"era": "train",
+"distance": 1.62
+},
+{
+"ticker": "GMRAIRPORT.NS",
+"entry_time": "2026-09-07 09:15",
+"type": "supply",
+"win": 1,
+"r": 2.0,
+"era": "holdout",
+"distance": 1.8
+},
+{
+"ticker": "TCS.NS",
+"entry_time": "2022-05-27 09:15",
+"type": "supply",
+"win": 1,
+"r": 2.0,
+"era": "train",
+"distance": 1.94
+},
+{
+"ticker": "ABBOTINDIA.NS",
+"entry_time": "2026-03-24 14:30",
+"type": "supply",
+"win": 0,
+"r": -1.0,
+"era": "holdout",
+"distance": 1.95
+},
+{
+"ticker": "AMBUJACEM.NS",
+"entry_time": "2026-02-03 09:15",
+"type": "supply",
+"win": 0,
+"r": -0.0,
+"era": "holdout",
+"distance": 2.02
+},
+{
+"ticker": "AMBUJACEM.NS",
+"entry_time": "2026-03-25 09:15",
+"type": "supply",
+"win": 0,
+"r": -1.0,
+"era": "holdout",
+"distance": 2.51
+},
+{
+"ticker": "YESBANK.NS",
+"entry_time": "2026-03-25 10:30",
+"type": "supply",
+"win": 1,
+"r": 2.0,
+"era": "holdout",
+"distance": 2.61
+},
+{
+"ticker": "SHREECEM.NS",
+"entry_time": "2026-04-15 09:15",
+"type": "supply",
+"win": 0,
+"r": -1.0,
+"era": "holdout",
+"distance": 2.64
+}
+],
+"similar_win_rate": 0.3,
+"similar_avg_r": 0.09970000000000001,
+"unusual": false,
+"novelty_pct": 43.0,
+"features": [
+{
+"name": "risk_pct",
+"label": "Stop distance (% of price)",
+"value": 0.202,
+"pct": 0.0,
+"contribution": -0.017
+},
+{
+"name": "htf_width_pct",
+"label": "HTF zone width (% of price)",
+"value": 1.593,
+"pct": 22.0,
+"contribution": -0.074
+},
+{
+"name": "entry_to_htf_pct",
+"label": "Entry depth inside HTF zone (%)",
+"value": 0.072,
+"pct": 9.0,
+"contribution": -0.039
+},
+{
+"name": "risk_atr_d",
+"label": "Stop distance in daily ATRs",
+"value": 0.102,
+"pct": 1.0,
+"contribution": -0.008
+},
+{
+"name": "stock_rs63",
+"label": "Stock vs NIFTY, last 63 days",
+"value": 0.007,
+"pct": 59.0,
+"contribution": 0.007
+},
+{
+"name": "nifty_above_200dma",
+"label": "NIFTY above 200-day average",
+"value": 0.0,
+"pct": 0.0,
+"contribution": -0.177
+},
+{
+"name": "log_htf_age_days",
+"label": "Age of HTF zone (log days)",
+"value": 1.609,
+"pct": 28.0,
+"contribution": 0.179
+},
+{
+"name": "type_demand",
+"label": "Demand zone (1) / supply (0)",
+"value": 0.0,
+"pct": 0.0,
+"contribution": -0.182
+}
+]
+},
+"COALINDIA.NS|DIT15|demand|386.3000": {
+"available": true,
+"similar": [
+{
+"ticker": "IRCTC.NS",
+"entry_time": "2022-06-20 12:45",
+"type": "demand",
+"win": 0,
+"r": -1.0,
+"era": "train",
+"distance": 2.08
+},
+{
+"ticker": "BRIGADE.NS",
+"entry_time": "2026-09-28 09:30",
+"type": "demand",
+"win": 0,
+"r": -1.0,
+"era": "holdout",
+"distance": 3.02
+},
+{
+"ticker": "SIEMENS.NS",
+"entry_time": "2024-12-23 10:00",
+"type": "demand",
+"win": 1,
+"r": 2.0,
+"era": "train",
+"distance": 3.05
+},
+{
+"ticker": "ASAHIINDIA.NS",
+"entry_time": "2024-02-01 15:15",
+"type": "demand",
+"win": 1,
+"r": 2.0,
+"era": "train",
+"distance": 3.25
+},
+{
+"ticker": "FEDERALBNK.NS",
+"entry_time": "2025-04-07 09:15",
+"type": "demand",
+"win": 0,
+"r": -1.0,
+"era": "train",
+"distance": 3.34
+},
+{
+"ticker": "SHREECEM.NS",
+"entry_time": "2026-04-15 09:15",
+"type": "supply",
+"win": 0,
+"r": -1.0,
+"era": "holdout",
+"distance": 3.55
+},
+{
+"ticker": "M&MFIN.NS",
+"entry_time": "2023-10-30 09:15",
+"type": "demand",
+"win": 0,
+"r": -0.024,
+"era": "train",
+"distance": 3.62
+},
+{
+"ticker": "COCHINSHIP.NS",
+"entry_time": "2022-03-11 09:15",
+"type": "supply",
+"win": 0,
+"r": -0.83,
+"era": "train",
+"distance": 3.78
+},
+{
+"ticker": "GMDCLTD.NS",
+"entry_time": "2026-03-04 12:00",
+"type": "demand",
+"win": 0,
+"r": -1.0,
+"era": "holdout",
+"distance": 3.91
+},
+{
+"ticker": "FEDERALBNK.NS",
+"entry_time": "2022-01-24 13:30",
+"type": "demand",
+"win": 0,
+"r": -1.0,
+"era": "train",
+"distance": 3.97
+}
+],
+"similar_win_rate": 0.2,
+"similar_avg_r": -0.2854,
+"unusual": true,
+"novelty_pct": 96.0,
+"features": [
+{
+"name": "risk_pct",
+"label": "Stop distance (% of price)",
+"value": 0.184,
+"pct": 0.0,
+"contribution": -0.018
+},
+{
+"name": "htf_width_pct",
+"label": "HTF zone width (% of price)",
+"value": 1.022,
+"pct": 3.0,
+"contribution": -0.129
+},
+{
+"name": "entry_to_htf_pct",
+"label": "Entry depth inside HTF zone (%)",
+"value": 0.013,
+"pct": 3.0,
+"contribution": -0.045
+},
+{
+"name": "risk_atr_d",
+"label": "Stop distance in daily ATRs",
+"value": 0.089,
+"pct": 0.0,
+"contribution": -0.008
+},
+{
+"name": "stock_rs63",
+"label": "Stock vs NIFTY, last 63 days",
+"value": 0.034,
+"pct": 62.0,
+"contribution": -0.0
+},
+{
+"name": "nifty_above_200dma",
+"label": "NIFTY above 200-day average",
+"value": 0.0,
+"pct": 0.0,
+"contribution": -0.177
+},
+{
+"name": "log_htf_age_days",
+"label": "Age of HTF zone (log days)",
+"value": 5.649,
+"pct": 99.0,
+"contribution": -0.866
+},
+{
+"name": "type_demand",
+"label": "Demand zone (1) / supply (0)",
+"value": 1.0,
+"pct": 38.0,
+"contribution": 0.112
+}
+]
+},
+"HAVELLS.NS|DIT15|supply|1082.0000": {
+"available": true,
+"similar": [
+{
+"ticker": "YESBANK.NS",
+"entry_time": "2026-03-25 10:30",
+"type": "supply",
+"win": 1,
+"r": 2.0,
+"era": "holdout",
+"distance": 0.71
+},
+{
+"ticker": "TCS.NS",
+"entry_time": "2022-05-27 09:15",
+"type": "supply",
+"win": 1,
+"r": 2.0,
+"era": "train",
+"distance": 1.21
+},
+{
+"ticker": "AMBUJACEM.NS",
+"entry_time": "2026-03-25 09:15",
+"type": "supply",
+"win": 0,
+"r": -1.0,
+"era": "holdout",
+"distance": 1.21
+},
+{
+"ticker": "AMBUJACEM.NS",
+"entry_time": "2026-02-03 09:15",
+"type": "supply",
+"win": 0,
+"r": -0.0,
+"era": "holdout",
+"distance": 1.51
+},
+{
+"ticker": "NTPC.NS",
+"entry_time": "2025-01-15 09:30",
+"type": "supply",
+"win": 0,
+"r": -1.0,
+"era": "train",
+"distance": 1.51
+},
+{
+"ticker": "TATACHEM.NS",
+"entry_time": "2022-03-03 09:15",
+"type": "supply",
+"win": 0,
+"r": -0.173,
+"era": "train",
+"distance": 1.7
+},
+{
+"ticker": "ABBOTINDIA.NS",
+"entry_time": "2026-03-24 14:30",
+"type": "supply",
+"win": 0,
+"r": -1.0,
+"era": "holdout",
+"distance": 1.96
+},
+{
+"ticker": "GMRAIRPORT.NS",
+"entry_time": "2026-09-07 09:15",
+"type": "supply",
+"win": 1,
+"r": 2.0,
+"era": "holdout",
+"distance": 1.99
+},
+{
+"ticker": "COCHINSHIP.NS",
+"entry_time": "2022-03-11 09:15",
+"type": "supply",
+"win": 0,
+"r": -0.83,
+"era": "train",
+"distance": 2.19
+},
+{
+"ticker": "BANKBARODA.NS",
+"entry_time": "2024-10-24 10:45",
+"type": "supply",
+"win": 1,
+"r": 2.0,
+"era": "train",
+"distance": 2.35
+}
+],
+"similar_win_rate": 0.4,
+"similar_avg_r": 0.3997,
+"unusual": false,
+"novelty_pct": 20.0,
+"features": [
+{
+"name": "risk_pct",
+"label": "Stop distance (% of price)",
+"value": 0.593,
+"pct": 34.0,
+"contribution": -0.006
+},
+{
+"name": "htf_width_pct",
+"label": "HTF zone width (% of price)",
+"value": 2.835,
+"pct": 71.0,
+"contribution": 0.046
+},
+{
+"name": "entry_to_htf_pct",
+"label": "Entry depth inside HTF zone (%)",
+"value": 0.296,
+"pct": 49.0,
+"contribution": -0.017
+},
+{
+"name": "risk_atr_d",
+"label": "Stop distance in daily ATRs",
+"value": 0.239,
+"pct": 56.0,
+"contribution": -0.0
+},
+{
+"name": "stock_rs63",
+"label": "Stock vs NIFTY, last 63 days",
+"value": -0.043,
+"pct": 46.0,
+"contribution": 0.02
+},
+{
+"name": "nifty_above_200dma",
+"label": "NIFTY above 200-day average",
+"value": 0.0,
+"pct": 0.0,
+"contribution": -0.177
+},
+{
+"name": "log_htf_age_days",
+"label": "Age of HTF zone (log days)",
+"value": 1.386,
+"pct": 20.0,
+"contribution": 0.237
+},
+{
+"name": "type_demand",
+"label": "Demand zone (1) / supply (0)",
+"value": 0.0,
+"pct": 0.0,
+"contribution": -0.182
+}
+]
+},
+"RECLTD.NS|DIT15|supply|299.4500": {
+"available": true,
+"similar": [
+{
+"ticker": "FLUOROCHEM.NS",
+"entry_time": "2025-01-09 09:30",
+"type": "supply",
+"win": 0,
+"r": -1.0,
+"era": "train",
+"distance": 1.47
+},
+{
+"ticker": "AMBUJACEM.NS",
+"entry_time": "2026-02-03 09:15",
+"type": "supply",
+"win": 0,
+"r": -0.0,
+"era": "holdout",
+"distance": 2.45
+},
+{
+"ticker": "ADANIENT.NS",
+"entry_time": "2021-11-08 15:00",
+"type": "supply",
+"win": 0,
+"r": -1.0,
+"era": "train",
+"distance": 3.14
+},
+{
+"ticker": "IGL.NS",
+"entry_time": "2026-03-11 14:15",
+"type": "supply",
+"win": 1,
+"r": 2.0,
+"era": "holdout",
+"distance": 3.31
+},
+{
+"ticker": "JBMA.NS",
+"entry_time": "2025-07-28 15:15",
+"type": "demand",
+"win": 1,
+"r": 2.0,
+"era": "train",
+"distance": 3.55
+},
+{
+"ticker": "ABBOTINDIA.NS",
+"entry_time": "2026-03-24 14:30",
+"type": "supply",
+"win": 0,
+"r": -1.0,
+"era": "holdout",
+"distance": 3.56
+},
+{
+"ticker": "TCS.NS",
+"entry_time": "2022-05-27 09:15",
+"type": "supply",
+"win": 1,
+"r": 2.0,
+"era": "train",
+"distance": 3.58
+},
+{
+"ticker": "TATACHEM.NS",
+"entry_time": "2022-03-03 09:15",
+"type": "supply",
+"win": 0,
+"r": -0.173,
+"era": "train",
+"distance": 3.62
+},
+{
+"ticker": "AMBUJACEM.NS",
+"entry_time": "2026-03-25 09:15",
+"type": "supply",
+"win": 0,
+"r": -1.0,
+"era": "holdout",
+"distance": 3.67
+},
+{
+"ticker": "NTPC.NS",
+"entry_time": "2025-01-15 09:30",
+"type": "supply",
+"win": 0,
+"r": -1.0,
+"era": "train",
+"distance": 3.75
+}
+],
+"similar_win_rate": 0.3,
+"similar_avg_r": 0.0827,
+"unusual": true,
+"novelty_pct": 97.0,
+"features": [
+{
+"name": "risk_pct",
+"label": "Stop distance (% of price)",
+"value": 0.294,
+"pct": 1.0,
+"contribution": -0.015
+},
+{
+"name": "htf_width_pct",
+"label": "HTF zone width (% of price)",
+"value": 2.828,
+"pct": 70.0,
+"contribution": 0.045
+},
+{
+"name": "entry_to_htf_pct",
+"label": "Entry depth inside HTF zone (%)",
+"value": 1.82,
+"pct": 97.0,
+"contribution": 0.132
+},
+{
+"name": "risk_atr_d",
+"label": "Stop distance in daily ATRs",
+"value": 0.123,
+"pct": 2.0,
+"contribution": -0.007
+},
+{
+"name": "stock_rs63",
+"label": "Stock vs NIFTY, last 63 days",
+"value": -0.136,
+"pct": 9.0,
+"contribution": 0.044
+},
+{
+"name": "nifty_above_200dma",
+"label": "NIFTY above 200-day average",
+"value": 0.0,
+"pct": 0.0,
+"contribution": -0.177
+},
+{
+"name": "log_htf_age_days",
+"label": "Age of HTF zone (log days)",
+"value": 0.693,
+"pct": 0.0,
+"contribution": 0.416
+},
+{
+"name": "type_demand",
+"label": "Demand zone (1) / supply (0)",
+"value": 0.0,
+"pct": 0.0,
+"contribution": -0.182
+}
+]
+},
+"360ONE.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ABB.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ABLBL.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ACMESOLAR.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ADANIPORTS.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"AFFLE.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"AMBER.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ANTHEM.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"APOLLOTYRE.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ASIANPAINT.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ATUL.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"BAJAJ-AUTO.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"BALKRISIND.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"BATAINDIA.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"BELRISE.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"BHARTIHEXA.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"BLUEDART.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"BRIGADE.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CARTRADE.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CEMPRO.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CGPOWER.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CHOLAFIN.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CONCOR.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CREDITACC.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CYIENT.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"DEEPAKFERT.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"DIXON.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ECLERX.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ELGIEQUIP.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ENGINERSIN.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"EXIDEIND.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"FIVESTAR.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"GABRIEL.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"GILLETTE.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"GMRAIRPORT.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"GODREJPROP.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"GRAVITA.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"HDFCBANK.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"HINDALCO.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"HOMEFIRST.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"HYUNDAI.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"IDBI.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"IGIL.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"INDHOTEL.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"INDUSINDBK.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"IOB.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"IRCTC.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ITI.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"JINDALSTEL.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"JPPOWER.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"JSWINFRA.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"JWL.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"KAYNES.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"KIRLOSENG.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"LALPATHLAB.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"LGEINDIA.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"LODHA.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"LTTS.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"MANAPPURAM.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"MASTEK.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"MEESHO.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"MOTHERSON.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"MSUMI.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"NATIONALUM.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"NCC.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"NH.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"NMDC.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"NUVOCO.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"OLAELEC.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"PAGEIND.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"PERSISTENT.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"PGEL.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"PIRAMALFIN.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"POLYMED.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"PREMIERENE.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"RADICO.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"RKFORGE.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"SAIL.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"SAREGAMA.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"SCHAEFFLER.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"SHYAMMETL.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"SOLARINDS.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"STARHEALTH.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"SUPREMEIND.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"SYRMA.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"TATACONSUM.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"TATATECH.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"TEGA.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"TIINDIA.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"TMPV.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"TRIDENT.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"UCOBANK.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"UPL.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"VEDL.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"WAAREEENER.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"WOCKPHARMA.NS|DIT15": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"360ONE.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ABB.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ABLBL.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ACMESOLAR.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ADANIPORTS.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"AFFLE.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"AMBER.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ANTHEM.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"APOLLOTYRE.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ASIANPAINT.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ATUL.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"BAJAJ-AUTO.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"BALKRISIND.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"BATAINDIA.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"BELRISE.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"BHARTIHEXA.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"BLUEDART.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"BRIGADE.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CANBK.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CARTRADE.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CEMPRO.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CGPOWER.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CHOLAFIN.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"COALINDIA.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CONCOR.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CREDITACC.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CYIENT.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"DEEPAKFERT.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"DIXON.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ECLERX.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ELGIEQUIP.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ENGINERSIN.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"EXIDEIND.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"FIVESTAR.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"GABRIEL.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"GILLETTE.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"GMRAIRPORT.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"GODREJPROP.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"GRAVITA.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"HAVELLS.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"HDFCBANK.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"HINDALCO.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"HOMEFIRST.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"HYUNDAI.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"IDBI.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"IGIL.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"INDHOTEL.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"INDUSINDBK.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"IOB.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"IRCTC.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ITI.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"JINDALSTEL.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"JPPOWER.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"JSWINFRA.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"JWL.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"KAYNES.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"KIRLOSENG.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"LALPATHLAB.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"LGEINDIA.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"LODHA.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"LTTS.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"MANAPPURAM.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"MASTEK.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"MEESHO.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"MOTHERSON.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"MSUMI.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"NATIONALUM.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"NCC.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"NH.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"NMDC.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"NUVOCO.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"OLAELEC.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"PAGEIND.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"PERSISTENT.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"PGEL.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"PIRAMALFIN.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"POLYMED.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"PREMIERENE.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"RADICO.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"RECLTD.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"RKFORGE.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"SAIL.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"SAREGAMA.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"SCHAEFFLER.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"SHYAMMETL.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"SOLARINDS.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"STARHEALTH.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"SUPREMEIND.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"SYRMA.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"TATACONSUM.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"TATATECH.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"TEGA.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"TIINDIA.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"TMPV.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"TRIDENT.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"UCOBANK.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"UPL.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"VEDL.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"WAAREEENER.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"WOCKPHARMA.NS|MIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"COALINDIA.NS|WIT|demand|386.9000": {
+"available": true,
+"similar": [
+{
+"ticker": "HINDUNILVR.NS",
+"entry_time": "2025-01-23 08:00",
+"type": "demand",
+"win": 1,
+"r": 2.0,
+"era": "train",
+"distance": 0.61
+},
+{
+"ticker": "DALBHARAT.NS",
+"entry_time": "2026-05-08 10:00",
+"type": "demand",
+"win": 0,
+"r": -1.0,
+"era": "holdout",
+"distance": 2.49
+},
+{
+"ticker": "EICHERMOT.NS",
+"entry_time": "2026-06-15 12:00",
+"type": "supply",
+"win": 1,
+"r": 2.0,
+"era": "holdout",
+"distance": 2.52
+},
+{
+"ticker": "TATACOMM.NS",
+"entry_time": "2023-10-23 14:00",
+"type": "demand",
+"win": 0,
+"r": -1.0,
+"era": "train",
+"distance": 2.79
+},
+{
+"ticker": "EIDPARRY.NS",
+"entry_time": "2025-12-09 08:00",
+"type": "demand",
+"win": 1,
+"r": 2.0,
+"era": "train",
+"distance": 2.85
+},
+{
+"ticker": "TRENT.NS",
+"entry_time": "2026-07-08 08:00",
+"type": "demand",
+"win": 1,
+"r": 2.0,
+"era": "holdout",
+"distance": 2.87
+},
+{
+"ticker": "VEDL.NS",
+"entry_time": "2022-12-23 14:00",
+"type": "demand",
+"win": 0,
+"r": -1.0,
+"era": "train",
+"distance": 2.98
+},
+{
+"ticker": "TECHM.NS",
+"entry_time": "2023-04-17 08:00",
+"type": "demand",
+"win": 0,
+"r": -1.0,
+"era": "train",
+"distance": 3.08
+},
+{
+"ticker": "SBICARD.NS",
+"entry_time": "2021-10-29 08:00",
+"type": "demand",
+"win": 0,
+"r": -1.0,
+"era": "train",
+"distance": 3.43
+},
+{
+"ticker": "IDBI.NS",
+"entry_time": "2022-09-26 10:00",
+"type": "demand",
+"win": 1,
+"r": 2.0,
+"era": "train",
+"distance": 3.47
+}
+],
+"similar_win_rate": 0.5,
+"similar_avg_r": 0.5,
+"unusual": false,
+"novelty_pct": 74.28571428571429,
+"features": [
+{
+"name": "risk_pct",
+"label": "Stop distance (% of price)",
+"value": 0.68,
+"pct": 1.0,
+"contribution": 0.184
+},
+{
+"name": "htf_width_pct",
+"label": "HTF zone width (% of price)",
+"value": 4.488,
+"pct": 24.0,
+"contribution": -0.06
+},
+{
+"name": "entry_to_htf_pct",
+"label": "Entry depth inside HTF zone (%)",
+"value": 0.336,
+"pct": 24.0,
+"contribution": 0.006
+},
+{
+"name": "risk_atr_d",
+"label": "Stop distance in daily ATRs",
+"value": 0.328,
+"pct": 26.0,
+"contribution": -0.175
+},
+{
+"name": "stock_rs63",
+"label": "Stock vs NIFTY, last 63 days",
+"value": 0.034,
+"pct": 36.0,
+"contribution": 0.025
+},
+{
+"name": "nifty_above_200dma",
+"label": "NIFTY above 200-day average",
+"value": 0.0,
+"pct": 0.0,
+"contribution": 0.599
+},
+{
+"name": "log_htf_age_days",
+"label": "Age of HTF zone (log days)",
+"value": 5.606,
+"pct": 99.0,
+"contribution": 0.919
+},
+{
+"name": "type_demand",
+"label": "Demand zone (1) / supply (0)",
+"value": 1.0,
+"pct": 26.0,
+"contribution": -0.04
+}
+]
+},
+"PAGEIND.NS|WIT|supply|39735.0000": {
+"available": true,
+"similar": [
+{
+"ticker": "EICHERMOT.NS",
+"entry_time": "2026-06-15 12:00",
+"type": "supply",
+"win": 1,
+"r": 2.0,
+"era": "holdout",
+"distance": 1.96
+},
+{
+"ticker": "TITAN.NS",
+"entry_time": "2025-08-25 10:00",
+"type": "supply",
+"win": 1,
+"r": 2.0,
+"era": "train",
+"distance": 2.64
+},
+{
+"ticker": "DALBHARAT.NS",
+"entry_time": "2026-05-08 10:00",
+"type": "demand",
+"win": 0,
+"r": -1.0,
+"era": "holdout",
+"distance": 2.75
+},
+{
+"ticker": "BIOCON.NS",
+"entry_time": "2023-12-15 08:00",
+"type": "supply",
+"win": 1,
+"r": 2.565,
+"era": "train",
+"distance": 2.83
+},
+{
+"ticker": "BAJFINANCE.NS",
+"entry_time": "2021-12-09 10:00",
+"type": "supply",
+"win": 1,
+"r": 2.0,
+"era": "train",
+"distance": 2.94
+},
+{
+"ticker": "PFC.NS",
+"entry_time": "2024-04-04 08:00",
+"type": "supply",
+"win": 1,
+"r": 2.0,
+"era": "train",
+"distance": 3.1
+},
+{
+"ticker": "HINDUNILVR.NS",
+"entry_time": "2025-01-23 08:00",
+"type": "demand",
+"win": 1,
+"r": 2.0,
+"era": "train",
+"distance": 3.1
+},
+{
+"ticker": "NATCOPHARM.NS",
+"entry_time": "2023-11-12 18:00",
+"type": "supply",
+"win": 0,
+"r": -0.0,
+"era": "train",
+"distance": 3.13
+},
+{
+"ticker": "CPPLUS.NS",
+"entry_time": "2026-09-23 08:00",
+"type": "supply",
+"win": 0,
+"r": -1.0,
+"era": "holdout",
+"distance": 3.17
+},
+{
+"ticker": "VTL.NS",
+"entry_time": "2022-03-03 08:00",
+"type": "supply",
+"win": 1,
+"r": 2.0,
+"era": "train",
+"distance": 3.2
+}
+],
+"similar_win_rate": 0.7,
+"similar_avg_r": 1.2565,
+"unusual": false,
+"novelty_pct": 77.14285714285715,
+"features": [
+{
+"name": "risk_pct",
+"label": "Stop distance (% of price)",
+"value": 1.358,
+"pct": 36.0,
+"contribution": 0.086
+},
+{
+"name": "htf_width_pct",
+"label": "HTF zone width (% of price)",
+"value": 2.495,
+"pct": 1.0,
+"contribution": -0.122
+},
+{
+"name": "entry_to_htf_pct",
+"label": "Entry depth inside HTF zone (%)",
+"value": 0.415,
+"pct": 26.0,
+"contribution": 0.005
+},
+{
+"name": "risk_atr_d",
+"label": "Stop distance in daily ATRs",
+"value": 0.624,
+"pct": 76.0,
+"contribution": 0.151
+},
+{
+"name": "stock_rs63",
+"label": "Stock vs NIFTY, last 63 days",
+"value": -0.067,
+"pct": 19.0,
+"contribution": 0.053
+},
+{
+"name": "nifty_above_200dma",
+"label": "NIFTY above 200-day average",
+"value": 0.0,
+"pct": 0.0,
+"contribution": 0.599
+},
+{
+"name": "log_htf_age_days",
+"label": "Age of HTF zone (log days)",
+"value": 3.871,
+"pct": 83.0,
+"contribution": 0.358
+},
+{
+"name": "type_demand",
+"label": "Demand zone (1) / supply (0)",
+"value": 0.0,
+"pct": 0.0,
+"contribution": 0.116
+}
+]
+},
+"360ONE.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ABB.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ABLBL.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ACMESOLAR.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ADANIPORTS.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"AFFLE.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"AMBER.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ANTHEM.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"APOLLOTYRE.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ASIANPAINT.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ATUL.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"BAJAJ-AUTO.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"BALKRISIND.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"BATAINDIA.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"BELRISE.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"BHARTIHEXA.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"BLUEDART.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"BRIGADE.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CANBK.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CARTRADE.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CEMPRO.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CGPOWER.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CHOLAFIN.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CONCOR.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CREDITACC.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"CYIENT.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"DEEPAKFERT.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"DIXON.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ECLERX.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ELGIEQUIP.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ENGINERSIN.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"EXIDEIND.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"FIVESTAR.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"GABRIEL.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"GILLETTE.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"GMRAIRPORT.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"GODREJPROP.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"GRAVITA.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"HAVELLS.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"HDFCBANK.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"HINDALCO.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"HOMEFIRST.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"HYUNDAI.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"IDBI.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"IGIL.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"INDHOTEL.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"INDUSINDBK.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"IOB.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"IRCTC.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"ITI.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"JINDALSTEL.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"JPPOWER.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"JSWINFRA.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"JWL.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"KAYNES.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"KIRLOSENG.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"LALPATHLAB.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"LGEINDIA.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"LODHA.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"LTTS.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"MANAPPURAM.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"MASTEK.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"MEESHO.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"MOTHERSON.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"MSUMI.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"NATIONALUM.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"NCC.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"NH.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"NMDC.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"NUVOCO.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"OLAELEC.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"PERSISTENT.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"PGEL.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"PIRAMALFIN.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"POLYMED.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"PREMIERENE.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"RADICO.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"RECLTD.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"RKFORGE.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"SAIL.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"SAREGAMA.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"SCHAEFFLER.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"SHYAMMETL.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"SOLARINDS.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"STARHEALTH.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"SUPREMEIND.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"SYRMA.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"TATACONSUM.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"TATATECH.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"TEGA.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"TIINDIA.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"TMPV.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"TRIDENT.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"UCOBANK.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"UPL.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"VEDL.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"WAAREEENER.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+},
+"WOCKPHARMA.NS|WIT": {
+"available": false,
+"reason": "no live setup on this ticker"
+}
+}
+}

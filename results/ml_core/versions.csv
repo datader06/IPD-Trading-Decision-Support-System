@@ -1,0 +1,4 @@
+run,algorithm_version,rows_used,rows_by_strategy,test_rows,models,base_win_rate,best_model,best_top50_lift_pts,best_auc,models_passing,min_detectable_lift_pts
+exp3_v5_f381ac0a,Final algorithm v5 (4 models),299,DIT15 194; WIT 70; MIT 35,172,4,0.37790697674418605,hist_gb,2.9069767441860463,0.5138030194104961,0,16.119360001232
+exp4_zoo_f381ac0a,Final algorithm v5 (8 models),299,DIT15 194; WIT 70; MIT 35,172,8,0.37790697674418605,hist_gb,2.9069767441860463,0.5138030194104961,0,16.119360001232
+ver_phaseA_b0_6c6e182c,"Previous algorithm, Phase A B0 (4 models)",336,DIT15 210; WIT 95; MIT 31,207,4,0.357487922705314,random_forest,-1.1334076551467842,0.4866896972160131,0,14.488771567259798

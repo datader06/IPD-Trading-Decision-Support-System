@@ -1,0 +1,11 @@
+{
+ "source": "results\\ml_core\\exp2_6c6e182c",
+ "sha256": "6c6e182c",
+ "rows_used": 336,
+ "rows_by_strategy": {
+  "DIT15": 210,
+  "WIT": 95,
+  "MIT": 31
+ },
+ "feature_version": "tier2-agnostic-v1"
+}

@@ -1,0 +1,92 @@
+{
+ "tag": "exp4_zoo",
+ "manifest": {
+  "source": "data\\algo_v5\\ml_dataset_baseline_v5.csv",
+  "sha256": "f381ac0addf2e24e4a1eb27be9c41fae9d3f370af3e555c2cc9608dcf7bb14b0",
+  "rows_in_file": 300,
+  "rows_used": 299,
+  "rows_by_strategy": {
+   "DIT15": 194,
+   "WIT": 70,
+   "MIT": 35
+  },
+  "rows_by_split": {
+   "train": 243,
+   "holdout": 56
+  },
+  "feature_version": "algo-v5-features-v1",
+  "feature_columns": [
+   "ltf_risk_pct",
+   "htf_risk_pct",
+   "overlap_frac",
+   "trend_strength_atr",
+   "htf_strong_legout",
+   "ltf_strong_legout",
+   "legout_exciting_candles",
+   "legout_gap",
+   "legout_strength_score",
+   "ltf_base_count",
+   "htf_base_count",
+   "time_at_base_score",
+   "ema_all",
+   "ema_count",
+   "type_demand",
+   "strat_wit",
+   "strat_mit",
+   "risk_atr_d",
+   "stock_rs63",
+   "nifty_above_200dma",
+   "log_htf_age_days"
+  ]
+ },
+ "test_years": [
+  2023,
+  2024,
+  2025
+ ],
+ "models": [
+  "logreg",
+  "random_forest",
+  "hist_gb",
+  "xgboost",
+  "extra_trees",
+  "adaboost",
+  "knn",
+  "naive_bayes"
+ ],
+ "n_oof": 172,
+ "base_win_rate": 0.37790697674418605,
+ "holdout_rows_not_used": 56,
+ "any_improvement_established": false,
+ "power": {
+  "rows": [
+   {
+    "lift_pts": 3.0,
+    "selected_trades_needed": 2483
+   },
+   {
+    "lift_pts": 5.0,
+    "selected_trades_needed": 894
+   },
+   {
+    "lift_pts": 10.0,
+    "selected_trades_needed": 224
+   },
+   {
+    "lift_pts": 15.0,
+    "selected_trades_needed": 100
+   }
+  ],
+  "min_detectable_lift_pts": 16.119360001232,
+  "n_selected_now": 86,
+  "alpha": 0.0125,
+  "power": 0.8,
+  "base_win_rate": 0.37790697674418605
+ },
+ "n_train_by_year": {
+  "2023": 70,
+  "2024": 127,
+  "2025": 189
+ },
+ "seconds": 32.1
+}
